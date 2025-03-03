@@ -30,7 +30,7 @@ const BeforeAfterGallery = () => {
   };
 
   return (
-    <div className="container mx-auto py-10 px-6">
+    <div className="container mx-auto py-10 px-6 border border-orange-100 shadow-lg rounded-lg border-b-amber-50">
       <h2 className="text-3xl font-bold text-center mb-6">📸 Before & After Gallery</h2>
       <p className="text-center text-gray-600 mb-4">
         See the amazing transformations from our beauty services!
@@ -45,7 +45,9 @@ const BeforeAfterGallery = () => {
       {images.map((image, index) => (
         <div key={index} className="mb-6 bg-white p-4 rounded-xl shadow-lg">
           {image.before && image.after ? (
-            <CompareImage leftImage={image.before} rightImage={image.after} />
+            <div className="w-full max-w-lg mx-auto h-[500px] overflow-hidden">
+              <CompareImage leftImage={image.before} rightImage={image.after} className="h-full w-full object-cover" />
+            </div>
           ) : (
             <div className="grid grid-cols-2 gap-4">
               <label className="flex flex-col items-center p-4 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:bg-gray-100">
@@ -71,7 +73,7 @@ const BeforeAfterGallery = () => {
         </div>
       ))}
 
-      <div className="text-center mt-4">
+      <div className="text-center mt-4 flex justify-center">
         <button
           onClick={addNewComparison}
           className="bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition flex items-center gap-2"
