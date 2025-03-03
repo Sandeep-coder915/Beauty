@@ -6,7 +6,8 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-gray-900 text-white px-6 py-4 shadow-md fixed absolute top-0 w-full z-10">
+    <>
+      <nav className="bg-gray-900 text-white px-6 py-4 shadow-md fixed absolute top-0 w-full z-10">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
 
         <Link to="/" className="hover:text-pink-500 text-2xl font-bold"> Beauty at Home</Link>
@@ -35,6 +36,11 @@ const Navbar = () => {
         </div>
       )}
     </nav>
+    <div className="h-16">
+
+    </div>
+    </>
+
   );
 };
 

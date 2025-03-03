@@ -7,11 +7,11 @@ import Services from './Services'
 const Home = () => {
   return (
     <div>
-      <Carousel/>
+      <Carousel />
 
-        <PromotionalContent />
-        <Services/>
-      <ServiceCard/>
+      <PromotionalContent />
+      <Services />
+      <ServiceCard />
     </div>
   )
 }
