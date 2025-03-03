@@ -24,7 +24,7 @@ const PromotionalContent = () => {
   }, []);
 
   return (
-    <div className="overflow-hidden bg-white-900 text-gray-900 py-3 flex justify-center">
+    <div className={`overflow-hidden bg-white-900   py-3 flex justify-center  darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"`}>
       <div
         ref={marqueeRef}
         className="flex whitespace-nowrap space-x-10 text-lg font-semibold animate-marquee"

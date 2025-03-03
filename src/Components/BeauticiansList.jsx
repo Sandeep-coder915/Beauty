@@ -60,9 +60,9 @@ const beauticians = [
 
 const BeauticiansList = () => {
   return (
-    <div className="container mx-auto py-10 px-6">
+    <div className={`"container mx-auto py-10 px-6 darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"`}>
       <h2 className="text-3xl font-bold text-center mb-6">🔒 Secure & Verified Beauticians</h2>
-      <p className="text-center text-gray-600 mb-4">
+      <p className="text-center  mb-4">
         Our professionals are ID-verified, trained, and certified to provide the best beauty services at your home.
       </p>
 

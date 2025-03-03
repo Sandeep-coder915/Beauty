@@ -32,13 +32,13 @@ const BeforeAfterGallery = () => {
   return (
     <div className="container mx-auto py-10 px-6 border border-orange-100 shadow-lg rounded-lg border-b-amber-50">
       <h2 className="text-3xl font-bold text-center mb-6">📸 Before & After Gallery</h2>
-      <p className="text-center text-gray-600 mb-4">
+      <p className="text-center   mb-4">
         See the amazing transformations from our beauty services!
       </p>
 
       {images.length === 0 && (
         <div className="text-center">
-          <p className="text-gray-500">No images uploaded yet.</p>
+          <p className=" ">No images uploaded yet.</p>
         </div>
       )}
 
