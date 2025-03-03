@@ -8,7 +8,7 @@ import Footer from './Components/Footer.jsx'
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("theme") === "dark";
+    return localStorage.getItem("theme") === "light" && localStorage.getItem("theme") !== "dark" ? false : true;
   });
 
   useEffect(() => {
