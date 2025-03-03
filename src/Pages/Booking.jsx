@@ -140,15 +140,15 @@ const Booking = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className={`flex items-center justify-center min-h-screen bg-gray-100 darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"`}>
       <div className="max-w-lg w-full bg-white p-8 shadow-xl rounded-lg">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Book an Appointment</h2>
         <form onSubmit={handleCOD} className="space-y-4">
-          <input name="name" placeholder="Full Name" onChange={handleChange} className="input w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
-          <input name="phone" placeholder="Phone Number" onChange={handleChange} className="input w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
+          <input name="name" placeholder="Full Name" onChange={handleChange} className="input w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400 text-black" required />
+          <input name="phone" placeholder="Phone Number" onChange={handleChange} className="input w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400  text-black " required />
 
           {/* House Number Input */}
-          <input name="houseNumber" placeholder="House Number" onChange={handleChange} className="input w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
+          <input name="houseNumber" placeholder="House Number" onChange={handleChange} className="input  text-black w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
 
           {/* Address Input with Autocomplete */}
           <div className="relative">
@@ -158,15 +158,15 @@ const Booking = () => {
               value={formData.address}
               placeholder="Street Address (Amritsar only)"
               onChange={handleChange}
-              className="input w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400"
+              className="input text-black w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400"
               required
             />
             {!googleLoaded && suggestions.length > 0 && (
-              <ul className="absolute bg-white border border-gray-300 w-full rounded-md mt-1 shadow-lg">
+              <ul className="absolute bg-white border  text-black border-gray-300 w-full rounded-md mt-1 shadow-lg">
                 {suggestions.map((location, index) => (
                   <li
                     key={index}
-                    className="p-2 cursor-pointer hover:bg-gray-200"
+                    className="p-2 cursor-pointer  text-black hover:bg-gray-200"
                     onClick={() => handleSelectAddress(location)}
                   >
                     {location}
@@ -178,21 +178,21 @@ const Booking = () => {
 
           {/* Landmark & Pincode (Same Row) */}
           <div className="grid grid-cols-2 gap-4">
-            <input name="landmark" placeholder="Landmark" onChange={handleChange} className="input w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
-            <input name="pincode" placeholder="144301" className="input w-full px-4 py-2 border rounded-lg " />
+            <input name="landmark" placeholder="Landmark" onChange={handleChange} className="input  text-black w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
+            <input name="pincode" placeholder="144301" className="input w-full px-4 py-2 border rounded-lg  text-black " />
           </div>
 
-          <select name="service" onChange={handleChange} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required>
+          <select name="service" onChange={handleChange} className="w-full  text-black px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required>
             <option value="">Select Service</option>
             <option value="Facial">Facial - ₹500</option>
             <option value="Hair Spa">Hair Spa - ₹800</option>
             <option value="Manicure">Manicure - ₹600</option>
           </select>
 
-          <input type="date" name="date" onChange={handleChange} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
-          <input type="time" name="time" onChange={handleChange} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
+          <input type="date" name="date" onChange={handleChange} className="w-full px-4  text-black py-2 border rounded-lg  " required />
+          <input type="time" name="time" onChange={handleChange} className="w-full  text-black px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
 
-          <button type="submit" className="bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 w-full">
+          <button type="submit" className="bg-gray-500  text-black  py-2 px-4 rounded-lg hover:bg-gray-600 w-full">
             Confirm Booking (COD)
           </button>
           <button type="button" onClick={handleRazorpayPayment} className="bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 w-full mt-3">

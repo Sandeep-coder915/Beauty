@@ -8,7 +8,8 @@ const Navbar = ({ darkMode, setDarkMode }) => {
  
 
   return (
-    <nav className={`px-6 py-4 shadow-md fixed top-0 w-full z-10 ${darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"}`}>
+    <>
+       <nav className={`px-6 py-4 shadow-md fixed top-0 w-full z-10 ${darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"}`}>
       <div className="flex justify-between items-center max-w-7xl mx-auto">
         <Link to="/" className="hover:text-pink-500 text-2xl font-bold">Beauty at Home</Link>
         
@@ -48,6 +49,12 @@ const Navbar = ({ darkMode, setDarkMode }) => {
         </div>
       )}
     </nav>
+
+    <div className="h-10">
+
+    </div>
+    </>
+ 
   );
 };
 
