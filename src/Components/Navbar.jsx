@@ -6,15 +6,16 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-gray-900 text-white px-6 py-4 shadow-md">
+    <nav className="bg-gray-900 text-white px-6 py-4 shadow-md fixed absolute top-0 w-full z-10">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
- 
+
         <Link to="/" className="hover:text-pink-500 text-2xl font-bold"> Beauty at Home</Link>
         <div className="hidden md:flex space-x-6">
           <Link to="/" className="hover:text-pink-500">Home</Link>
           <Link to="/services" className="hover:text-pink-500">Services</Link>
           <Link to="/booking" className="hover:text-pink-500">Book Now</Link>
           <Link to="/contact" className="hover:text-pink-500">Contact</Link>
+          {/* <Link to="/Blogs" className="hover:text-pink-500">Blogs</Link> */}
         </div>
 
         <div className="md:hidden">
@@ -30,6 +31,7 @@ const Navbar = () => {
           <Link to="/services" className="hover:text-pink-500">Services</Link>
           <Link to="/booking" className="hover:text-pink-500">Book Now</Link>
           <Link to="/contact" className="hover:text-pink-500">Contact</Link>
+          {/* <Link to="/Blogs" className="hover:text-pink-500">Blogs</Link> */}
         </div>
       )}
     </nav>
