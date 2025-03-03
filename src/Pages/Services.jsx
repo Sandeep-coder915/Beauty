@@ -3,8 +3,8 @@ import ServiceCard from "../Components/ServiceCard";
 
 const services = [
   { name: "Facial", image: "https://leonardmedispa.com/wp-content/uploads/2017/03/facial-86487979-1-768x433.jpg", description: "Relaxing facial treatment", price: "₹999" },
-  { name: "Hair Spa", image: "https://leonardmedispa.com/wp-content/uploads/2017/03/facial-86487979-1-768x433.jpg", description: "Deep hair nourishment", price: "₹1299" },
-  { name: "Manicure", image: "https://leonardmedispa.com/wp-content/uploads/2017/03/facial-86487979-1-768x433.jpg", description: "Luxury nail care", price: "₹799" },
+  { name: "Hair Spa", image: "https://myhomesalon.in/wp-content/uploads/2023/07/Hair-Spa-Price-In-India.jpg", description: "Deep hair nourishment", price: "₹1299" },
+  { name: "Manicure", image: "https://vendor.mschirpy.com/blogs/1694368785.jpg", description: "Luxury nail care", price: "₹799" },
 ];
 
 const Services = () => {
