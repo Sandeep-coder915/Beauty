@@ -5,6 +5,7 @@ import Carousel from '../Components/Carousel'
 import Services from './Services'
 import WhyChooseUs from '../Components/WhyChooseUs'
 import BeforeAfterGallery from '../Components/BeforeAfterGallery'
+import BeauticiansList from '../Components/BeauticiansList'
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <PromotionalContent />
       <Services />
       <WhyChooseUs/>
+      <BeauticiansList/>
       <BeforeAfterGallery/>
 
       <ServiceCard />
