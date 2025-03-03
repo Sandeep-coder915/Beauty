@@ -3,6 +3,7 @@ import ServiceCard from '../Components/ServiceCard'
 import PromotionalContent from '../Components/PromotionalContent'
 import Carousel from '../Components/Carousel'
 import Services from './Services'
+import WhyChooseUs from '../Components/WhyChooseUs'
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
 
       <PromotionalContent />
       <Services />
+      <WhyChooseUs/>
       <ServiceCard />
     </div>
   )
