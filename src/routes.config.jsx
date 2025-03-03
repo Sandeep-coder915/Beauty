@@ -2,9 +2,10 @@ import React from 'react'
 import Home from './Pages/Home'
 import Services from './Pages/Services'
 import Booking from './Pages/Booking'
-import Contact from './Pages/Contact'
+
 import { Routes, Route } from 'react-router-dom';
 import BookingForm from './Components/BookingForm'
+import ContactForm from './Pages/Contact';
 const AppRoutes = () => {
   return (
     <div>
@@ -13,7 +14,7 @@ const AppRoutes = () => {
       <Route path="/" element={<Home/>} />
       <Route path="/services" element={<Services />} />
 
-      <Route path="/contact" element={<Contact/>} />
+      <Route path="/contact" element={<ContactForm/>} />
       <Route path="/booking-form" element={<Booking/>} />
 
     </Routes>
