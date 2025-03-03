@@ -7,7 +7,7 @@ const ServiceCard = ({ service }) => {
       <img
         src={service?.image || "https://via.placeholder.com/150"}
         alt={service?.name || "Service Image"}
-        className="w-full h-40 object-cover rounded-md"
+        className="w-full h-70 object-cover rounded-md"
       />
       <h2 className="text-xl font-semibold mt-2">{service?.name || "Service Name"}</h2>
       <p className="text-gray-600">{service?.description || "No description available."}</p>
