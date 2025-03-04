@@ -29,7 +29,7 @@ export default function AboutUs({ darkMode }) {
       <div className="grid md:grid-cols-3 gap-6">
         {[
           { name: "Tania", role: "Co-Founder", image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp" },
-          { name: "Simran", role: "Co-Founder", image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp" },
+          // { name: "Simran", role: "Co-Founder", image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp" },
           { name: "Sandeep", role: "Co-Founder", image: "https://cdn0.iconfinder.com/data/icons/avatars-3/512/avatar_bussiness_man-1024.png" }
         ].map((founder, index) => (
           <div key={index} className={`text-center shadow-lg p-6 rounded-2xl hover:shadow-2xl transition ${darkMode ? 'bg-gray-800 text-white' : 'bg-white  text-pink-400'}`}>
