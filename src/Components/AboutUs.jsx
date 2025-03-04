@@ -9,7 +9,7 @@ export default function AboutUs({ darkMode }) {
           <h2 className="text-3xl font-bold">Our Story</h2>
           <p className={`mt-4 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'} p-4 rounded-lg`}>
             Beauty at Home was created with a mission to make self-care convenient and accessible.
-            Founded by Tania, Simran, and Sandeep, our platform connects skilled beauty professionals
+            Founded by Tania,Sandeep, our platform connects skilled beauty professionals
             with customers who prefer the comfort of home. Our journey began with a vision of making
             beauty treatments stress-free, ensuring everyone can enjoy high-quality services at their convenience.
           </p>
