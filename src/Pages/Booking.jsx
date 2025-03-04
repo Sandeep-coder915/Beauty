@@ -6,7 +6,6 @@ import autoTable from "jspdf-autotable";
 import beautyathomeLogo from "./ss.png"; // Adjust the path if needed
 
 import { Loader } from "lucide-react"; // Import Loader icon for animation
-
 const amritsarLocations = [
   "Golden Temple", "Ranjit Avenue", "Lawrence Road", "Mall Road",
   "Katra Jaimal Singh", "Wagah Border", "Alpha One Mall",
@@ -189,11 +188,23 @@ const Booking = () => {
             <input name="pincode" value="143001" className="w-full px-4 py-2 border rounded-lg text-black" readOnly />
           </div>
           <select name="service" onChange={handleChange} className="w-full px-4 py-2 border rounded-lg text-black" required>
-            <option value="">Select Service</option>
-            <option value="Facial">Facial - ₹500</option>
-            <option value="Hair Spa">Hair Spa - ₹800</option>
-            <option value="Manicure">Manicure - ₹600</option>
-          </select>
+  <option value="">Select Service</option>
+  <option value="Facial">Facial - ₹500</option>
+  <option value="Hair Spa">Hair Spa - ₹800</option>
+  <option value="Manicure">Manicure - ₹600</option>
+
+  {/* Added Combo Services */}
+  <option value="Bleach, Facial, Full Leg Wax, Arm Wax with Underarms, Threading, Upper Lips, Forehead">Bleach, Facial, Full Leg Wax, Arm Wax with Underarms, Threading, Upper Lips, Forehead - ₹1000</option>
+  <option value="Manicure, Pedicure, Hair Spa">Manicure, Pedicure, Hair Spa - ₹850</option>
+  <option value="Bleach, Facial, Manicure, Pedicure">Bleach, Facial, Manicure, Pedicure - ₹800</option>
+  <option value="Rebonding (Normal Length)">Rebonding (Normal Length) - ₹3000</option>
+  <option value="Rebonding + Keratin + Highlights">Rebonding + Keratin + Highlights - ₹4500</option>
+  <option value="Kerasmoth">Kerasmoth - ₹3500</option>
+  <option value="Global Highlights + Keratin (Normal Length)">Global Highlights + Keratin (Normal Length) - ₹3500</option>
+  <option value="Any Hairstyle">Any Hairstyle (Starting from ₹400)</option>
+  <option value="Party Makeup">Party Makeup - ₹1000</option>
+</select>
+
           <input type="date" name="date" onChange={handleChange} className="w-full text-black px-4 py-2 border rounded-lg" required />
           <input type="time" name="time" onChange={handleChange} className="w-full px-4 py-2 text-black border rounded-lg" required />
 
