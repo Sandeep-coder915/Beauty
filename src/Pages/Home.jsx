@@ -6,6 +6,8 @@ import Services from './Services'
 import WhyChooseUs from '../Components/WhyChooseUs'
 import BeforeAfterGallery from '../Components/BeforeAfterGallery'
 import BeauticiansList from '../Components/BeauticiansList'
+import Reviews from './Reviews'
+import TestimonialCarousel from './TestimonialCarousel'
 
 const Home = () => {
   return (
@@ -17,8 +19,9 @@ const Home = () => {
       <WhyChooseUs/>
       <BeauticiansList/>
       <BeforeAfterGallery/>
-
-      <ServiceCard />
+{/* <Reviews/> */}
+<TestimonialCarousel/>
+      {/* <ServiceCard /> */}
     </div>
   )
 }

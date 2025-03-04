@@ -5,7 +5,7 @@ const beauticians = [
   {
     id: 1,
     name: "Sonia Kapoor",
-    image: "/beautician1.jpg",
+    image: "https://mdbcdn.b-cdn.net/img/new/avatars/5.webp",
     experience: "5+ Years",
     rating: 4.8,
     verified: true,
@@ -14,7 +14,7 @@ const beauticians = [
   {
     id: 2,
     name: "Riya Sharma",
-    image: "/beautician2.jpg",
+    image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp",
     experience: "3+ Years",
     rating: 4.5,
     verified: true,
@@ -23,7 +23,34 @@ const beauticians = [
   {
     id: 3,
     name: "Priya Mehta",
-    image: "/beautician3.jpg",
+    image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp",
+    experience: "7+ Years",
+    rating: 4.9,
+    verified: true,
+    certifications: ["Bridal Makeup Expert", "Professional Hair Spa Specialist"],
+  },
+  {
+    id: 4,
+    name: "Priya Mehta",
+    image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp",
+    experience: "7+ Years",
+    rating: 4.9,
+    verified: true,
+    certifications: ["Bridal Makeup Expert", "Professional Hair Spa Specialist"],
+  },
+  {
+    id: 5,
+    name: "Priya Mehta",
+    image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp",
+    experience: "7+ Years",
+    rating: 4.9,
+    verified: true,
+    certifications: ["Bridal Makeup Expert", "Professional Hair Spa Specialist"],
+  },
+  {
+    id: 6,
+    name: "Priya Mehta",
+    image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp",
     experience: "7+ Years",
     rating: 4.9,
     verified: true,
@@ -33,9 +60,9 @@ const beauticians = [
 
 const BeauticiansList = () => {
   return (
-    <div className="container mx-auto py-10 px-6">
+    <div className={`"container mx-auto py-10 px-6 darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"`}>
       <h2 className="text-3xl font-bold text-center mb-6">🔒 Secure & Verified Beauticians</h2>
-      <p className="text-center text-gray-600 mb-4">
+      <p className="text-center  mb-4">
         Our professionals are ID-verified, trained, and certified to provide the best beauty services at your home.
       </p>
 

@@ -20,7 +20,7 @@ const ContactForm = () => {
     e.preventDefault();
     setLoading(true);
 
-    emailjs.send("service_4dtz174","template_4cl31bi", formData, "77GhrP483V-tWB0LE")
+    emailjs.send("service_2qgc2lp","template_peo6c8o", formData, "77GhrP483V-tWB0LE")
       .then(() => {
         setStatusMessage("Message sent successfully!");
         setFormData({ name: "", email: "", phone: "", message: "" });
@@ -30,7 +30,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
+    <div className={`flex items-center justify-center min-h-screen bg-gray-100 px-4 darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"`}>
       <div className="max-w-lg w-full bg-white p-8 shadow-xl rounded-lg">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Contact Us</h2>
 
@@ -46,7 +46,7 @@ const ContactForm = () => {
             placeholder="Your Name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400"
+            className="w-full px-4  text-black py-2 border rounded-lg focus:ring-2 focus:ring-pink-400"
             required
           />
 
@@ -57,7 +57,7 @@ const ContactForm = () => {
             placeholder="Your Email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400"
+            className="w-full  text-black px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400"
             required
           />
 
@@ -68,7 +68,7 @@ const ContactForm = () => {
             placeholder="Your Phone Number"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400"
+            className="w-full px-4  text-black py-2 border rounded-lg focus:ring-2 focus:ring-pink-400"
             required
           />
 
@@ -78,14 +78,14 @@ const ContactForm = () => {
             placeholder="Your Message"
             value={formData.message}
             onChange={handleChange}
-            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400 h-32 resize-none"
+            className="w-full px-4  text-black py-2 border rounded-lg focus:ring-2 focus:ring-pink-400 h-32 resize-none"
             required
           ></textarea>
 
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-pink-500 text-white py-3 rounded-lg hover:bg-pink-600 transition font-semibold"
+            className="w-full  bg-pink-500 text-white py-3 rounded-lg hover:bg-pink-600 transition font-semibold"
             disabled={loading}
           >
             {loading ? "Sending..." : "Send Message"}

@@ -16,16 +16,17 @@ const Booking = () => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
+    email:"",
     houseNumber: "",
     address: "",
     landmark: "",
-    pincode: "143001",
+    pincode: "143001", // Default Amritsar Pincode
     service: "",
     date: "",
     time: "",
+
     paymentMode: "COD",
     amount: 500,
-    email: "",
   });
 
   const [suggestions, setSuggestions] = useState([]);
@@ -72,88 +73,110 @@ const Booking = () => {
     setSuggestions([]);
   };
 
-  const sendEmailConfirmation = async (paymentData) => {
-    const emailParams = {
-      to_name: paymentData.name,
-      from_name: "Beauty At Home",
-      email: paymentData.email,
-      message: `
-        Booking Confirmation
+  const sendToGoogleSheet = async (paymentData) => {
+    await fetch("YOUR_GOOGLE_APPS_SCRIPT_URL", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(paymentData),
+    });
+  };
 
-        Dear ${paymentData.name},
-
-        Your booking has been confirmed! Here are the details:
-
-        - Service: ${paymentData.service}
-        - Date & Time: ${paymentData.date}, ${paymentData.time}
-        - Amount: ₹${paymentData.amount}
-        - Payment Mode: ${paymentData.paymentMode}
-        - Payment ID: ${paymentData.paymentId}
-
-        Address: ${paymentData.address}, ${paymentData.landmark}, ${paymentData.houseNumber}, ${paymentData.pincode}
-
-        For any queries, contact us at support@beautyathome.com
-
-        Best Regards,
-        Beauty At Home
-      `,
-    };
-
-    await emailjs
-      .send("service_4dtz174", "template_4cl31bi", emailParams, "77GhrP483V-tWB0LE")
+  const sendEmailConfirmation = async (data) => {
+    await emailjs.send("service_4dtz174", "template_og9488e", data, "77GhrP483V-tWB0LE")
       .then(() => alert("Booking confirmed! Check your email."))
-      .catch((error) => console.error("Email sending failed:", error));
+      .catch((error) => alert("Email sending failed", error));
   };
 
-  const sendToGoogleSheet = async (data) => {
-    try {
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbzwkct_PkGRdOWthV5PtYsQntlUTykH31FSy0zAvt_aXRUzrxJt9TS-gPssgRsTOmE0/exec",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        }
-      );
+  // const handleRazorpayPayment = () => {
+  //   const script = document.createElement("script");
+  //   script.src = "https://checkout.razorpay.com/v1/checkout.js";
+  //   script.async = true;
+  //   document.body.appendChild(script);
 
-      const result = await response.text();
-      console.log("Google Script Response:", result);
-    } catch (error) {
-      console.error("Error sending data to Google Sheets:", error);
-    }
-  };
+  //   script.onload = () => {
+  //     const options = {
+  //       key: "YOUR_RAZORPAY_KEY",
+  //       amount: formData.amount * 100,
+  //       currency: "INR",
+  //       name: "Revaais and Group",
+  //       description: `Payment for ${formData.service}`,
+  //       handler: function (response) {
+  //         const paymentData = {
+  //           ...formData,
+  //           paymentId: response.razorpay_payment_id,
+  //           status: "Paid",
+  //         };
 
-  const handleCOD = async (e) => {
+  //         sendToGoogleSheet(paymentData);
+  //         sendEmailConfirmation(paymentData);
+  //         alert("Payment Successful!");
+  //         navigate("/confirmation", { state: { ...paymentData } });
+  //       },
+  //       prefill: {
+  //         name: formData.name,
+  //         email: "customer@example.com",
+  //         contact: formData.phone,
+  //       },
+  //       theme: {
+  //         color: "#F37254",
+  //       },
+  //     };
+
+  //     const paymentObject = new window.Razorpay(options);
+  //     paymentObject.open();
+  //   };
+  // };
+
+  const handleCOD = (e) => {
     e.preventDefault();
-
     const codData = {
       ...formData,
       paymentId: "COD-" + new Date().getTime(),
       status: "Pending",
     };
 
-    await sendToGoogleSheet(codData);
-    await sendEmailConfirmation(codData);
-    alert("COD Order Placed Successfully! Check your email.");
+    sendToGoogleSheet(codData);
+    sendEmailConfirmation(codData);
+    alert("COD Order Placed Successfully!");
     navigate("/confirmation", { state: { ...codData } });
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className={`flex items-center justify-center min-h-screen bg-gray-100 darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"`}>
       <div className="max-w-lg w-full bg-white p-8 shadow-xl rounded-lg">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Book an Appointment</h2>
         <form onSubmit={handleCOD} className="space-y-4">
-          <input name="name" placeholder="Full Name" onChange={handleChange} className="input w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
-          <input name="phone" placeholder="Phone Number" onChange={handleChange} className="input w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
-          <input name="email" type="email" placeholder="Email Address (optional)" onChange={handleChange} className="input w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" />
-          <input name="houseNumber" placeholder="House Number" onChange={handleChange} className="input w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
+          <input name="name" placeholder="Full Name" onChange={handleChange} className="input w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400 text-black" required />
+          <input name="phone" placeholder="Phone Number" onChange={handleChange} className="input w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400  text-black " required />
+          <input
+  name="email"
+  type="email"
+  placeholder="Email Address (optional)"
+  onChange={handleChange}
+  className="input w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400  text-black " required />
 
+          {/* House Number Input */}
+          <input name="houseNumber" placeholder="House Number" onChange={handleChange} className="input  text-black w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
+
+          {/* Address Input with Autocomplete */}
           <div className="relative">
-            <input ref={addressInputRef} name="address" value={formData.address} placeholder="Street Address (Amritsar only)" onChange={handleChange} className="input w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
+            <input
+              ref={addressInputRef}
+              name="address"
+              value={formData.address}
+              placeholder="Street Address (Amritsar only)"
+              onChange={handleChange}
+              className="input text-black w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400"
+              required
+            />
             {!googleLoaded && suggestions.length > 0 && (
-              <ul className="absolute bg-white border border-gray-300 w-full rounded-md mt-1 shadow-lg">
+              <ul className="absolute bg-white border  text-black border-gray-300 w-full rounded-md mt-1 shadow-lg">
                 {suggestions.map((location, index) => (
-                  <li key={index} className="p-2 cursor-pointer hover:bg-gray-200" onClick={() => handleSelectAddress(location)}>
+                  <li
+                    key={index}
+                    className="p-2 cursor-pointer  text-black hover:bg-gray-200"
+                    onClick={() => handleSelectAddress(location)}
+                  >
                     {location}
                   </li>
                 ))}
@@ -161,13 +184,28 @@ const Booking = () => {
             )}
           </div>
 
-          <input name="landmark" placeholder="Landmark" onChange={handleChange} className="input w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
-          <input name="pincode" value="143001" className="input w-full px-4 py-2 border rounded-lg" readOnly />
+          {/* Landmark & Pincode (Same Row) */}
+          <div className="grid grid-cols-2 gap-4">
+            <input name="landmark" placeholder="Landmark" onChange={handleChange} className="input  text-black w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
+            <input name="pincode" placeholder="144301" className="input w-full px-4 py-2 border rounded-lg  text-black " />
+          </div>
 
-          <input type="date" name="date" onChange={handleChange} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
-          <input type="time" name="time" onChange={handleChange} className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
+          <select name="service" onChange={handleChange} className="w-full  text-black px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required>
+            <option value="">Select Service</option>
+            <option value="Facial">Facial - ₹500</option>
+            <option value="Hair Spa">Hair Spa - ₹800</option>
+            <option value="Manicure">Manicure - ₹600</option>
+          </select>
 
-          <button type="submit" className="bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 w-full">Confirm Booking (COD)</button>
+          <input type="date" name="date" onChange={handleChange} className="w-full px-4  text-black py-2 border rounded-lg  " required />
+          <input type="time" name="time" onChange={handleChange} className="w-full  text-black px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
+
+          <button type="submit" className="bg-gray-500  text-black  py-2 px-4 rounded-lg hover:bg-gray-600 w-full">
+            Confirm Booking (COD)
+          </button>
+          {/* <button type="button" onClick={handleRazorpayPayment} className="bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 w-full mt-3">
+            Pay Now (UPI/Card)
+          </button> */}
         </form>
       </div>
     </div>

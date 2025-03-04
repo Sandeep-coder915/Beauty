@@ -25,10 +25,10 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-100 text-gray-800">
+    <section className={`  darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"`}>
       <div className="container mx-auto text-center px-6">
         <h2 className="text-4xl font-bold mb-6 text-pink-600">Why Choose Us?</h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-10">
+        <p className="text-lg max-w-2xl mx-auto mb-10">
           Experience seamless beauty services at home with secure payments and professional care.
         </p>
 
