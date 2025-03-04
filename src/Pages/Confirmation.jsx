@@ -8,7 +8,7 @@ const Confirmation = () => {
       <h2 className="text-3xl font-bold text-green-500">Booking Confirmed!</h2>
       <p className="text-lg mt-2">Your appointment has been scheduled.</p>
 
-      <div className="bg-white shadow-lg p-6 rounded-md mt-6 max-w-lg mx-auto">
+      <div className="bg-white text-black shadow-lg p-6 rounded-md mt-6 max-w-lg mx-auto">
         <p><strong>Name:</strong> {state.name}</p>
         <p><strong>Phone:</strong> {state.phone}</p>
         <p><strong>Address:</strong> {state.address}</p>

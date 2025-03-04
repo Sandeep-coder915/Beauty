@@ -25,7 +25,7 @@ const BookingForm = () => {
       .catch((error) => alert("Failed to send confirmation email", error));
 
     // Store in Google Sheets (Use API call)
-    console.log("Booking Details:", formData);
+
   };
 
   return (

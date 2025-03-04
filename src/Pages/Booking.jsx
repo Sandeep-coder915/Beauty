@@ -1,6 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from "emailjs-com";
+import { jsPDF } from "jspdf";
+import autoTable from "jspdf-autotable";
+import beautyathomeLogo from "./ss.png"; // Adjust the path if needed
+import { Calendar, Clock, MapPin, CreditCard, User, Phone, Mail, Home, Landmark, Barcode, CheckCircle } from "lucide-react"; // Lucide icons
+
 
 const amritsarLocations = [
   "Golden Temple", "Ranjit Avenue", "Lawrence Road", "Mall Road",
@@ -16,51 +21,25 @@ const Booking = () => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    email:"",
+    email: "",
     houseNumber: "",
     address: "",
     landmark: "",
-    pincode: "143001", // Default Amritsar Pincode
+    pincode: "143001",
     service: "",
     date: "",
     time: "",
-
     paymentMode: "COD",
     amount: 500,
   });
 
   const [suggestions, setSuggestions] = useState([]);
-  const [googleLoaded, setGoogleLoaded] = useState(false);
-
-  useEffect(() => {
-    if (window.google) {
-      setGoogleLoaded(true);
-      const autocomplete = new window.google.maps.places.Autocomplete(addressInputRef.current, {
-        types: ["geocode"],
-        componentRestrictions: { country: "IN" },
-      });
-
-      autocomplete.addListener("place_changed", () => {
-        const place = autocomplete.getPlace();
-        const city = place.address_components.find((component) =>
-          component.types.includes("locality")
-        )?.long_name;
-
-        if (city !== "Amritsar") {
-          alert("Sorry, we only accept bookings in Amritsar.");
-          setFormData({ ...formData, address: "" });
-        } else {
-          setFormData({ ...formData, address: place.formatted_address });
-        }
-      });
-    }
-  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
 
-    if (name === "address" && !googleLoaded) {
+    if (name === "address") {
       const filteredSuggestions = amritsarLocations.filter((location) =>
         location.toLowerCase().startsWith(value.toLowerCase())
       );
@@ -73,139 +52,151 @@ const Booking = () => {
     setSuggestions([]);
   };
 
-  const sendToGoogleSheet = async (paymentData) => {
-    await fetch("YOUR_GOOGLE_APPS_SCRIPT_URL", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(paymentData),
-    });
-  };
-
   const sendEmailConfirmation = async (data) => {
-    await emailjs.send("service_4dtz174", "template_og9488e", data, "77GhrP483V-tWB0LE")
+    const emailData = {
+      to_email: data.email,
+      user_name: data.name,
+      phone: data.phone,
+      houseNumber: data.houseNumber,
+      address: data.address,
+      landmark: data.landmark,
+      pincode: data.pincode,
+      service: data.service,
+      date: data.date,
+      time: data.time,
+      paymentMode: data.paymentMode,
+      amount: data.amount,
+    };
+
+    await emailjs.send("service_4dtz174", "template_og9488e", emailData, "77GhrP483V-tWB0LE")
       .then(() => alert("Booking confirmed! Check your email."))
       .catch((error) => alert("Email sending failed", error));
   };
 
-  // const handleRazorpayPayment = () => {
-  //   const script = document.createElement("script");
-  //   script.src = "https://checkout.razorpay.com/v1/checkout.js";
-  //   script.async = true;
-  //   document.body.appendChild(script);
 
-  //   script.onload = () => {
-  //     const options = {
-  //       key: "YOUR_RAZORPAY_KEY",
-  //       amount: formData.amount * 100,
-  //       currency: "INR",
-  //       name: "Revaais and Group",
-  //       description: `Payment for ${formData.service}`,
-  //       handler: function (response) {
-  //         const paymentData = {
-  //           ...formData,
-  //           paymentId: response.razorpay_payment_id,
-  //           status: "Paid",
-  //         };
-
-  //         sendToGoogleSheet(paymentData);
-  //         sendEmailConfirmation(paymentData);
-  //         alert("Payment Successful!");
-  //         navigate("/confirmation", { state: { ...paymentData } });
-  //       },
-  //       prefill: {
-  //         name: formData.name,
-  //         email: "customer@example.com",
-  //         contact: formData.phone,
-  //       },
-  //       theme: {
-  //         color: "#F37254",
-  //       },
-  //     };
-
-  //     const paymentObject = new window.Razorpay(options);
-  //     paymentObject.open();
-  //   };
-  // };
-
-  const handleCOD = (e) => {
+  const handleCOD = async (e) => {
     e.preventDefault();
+    const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+
     const codData = {
       ...formData,
       paymentId: "COD-" + new Date().getTime(),
       status: "Pending",
+      timestamp, // Add timestamp
     };
 
-    sendToGoogleSheet(codData);
-    sendEmailConfirmation(codData);
-    alert("COD Order Placed Successfully!");
+    // Convert booking data to JSON format
+    const jsonData = JSON.stringify(codData, null, 2);
+
+    // Convert JSON to a base64 encoded string for sending via email
+    const base64Json = btoa(unescape(encodeURIComponent(jsonData)));
+
+    // Send JSON file to Admin via EmailJS
+    await emailjs.send("service_4dtz174", "template_admin_notify", {
+      to_email: "sandeep.revaais@gmail.com",  // Admin Email
+      user_name: codData.name,
+      phone: codData.phone,
+      houseNumber: codData.houseNumber,
+      address: codData.address,
+      landmark: codData.landmark,
+      pincode: codData.pincode,
+      service: codData.service,
+      date: codData.date,
+      time: codData.time,
+      paymentMode: codData.paymentMode,
+      amount: codData.amount,
+      json_attachment: base64Json,  // Attach JSON file
+  }, "77GhrP483V-tWB0LE").then(() => console.log("Admin notified with JSON file"))
+    .catch((error) => console.log("Failed to send JSON file to admin", error));
+
+    // Send Confirmation Email to User
+    await sendEmailConfirmation(codData);
+    // 🔽 Generate PDF for Customer
+    const doc = new jsPDF();
+
+    // 🖼️ Add Logo
+    doc.addImage(beautyathomeLogo, "PNG", 80, 10, 50, 20); // Centered logo
+
+    // 🏷️ Add Title
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(18);
+    doc.text("Booking Invoice", 80, 40);
+
+    // 📌 Booking Info (Removed Icons)
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "normal");
+    doc.text(`Booking ID: ${codData.paymentId}`, 14, 50);
+    doc.text(`Date: ${codData.date}`, 14, 60);
+    doc.text(`Time: ${codData.time}`, 14, 70);
+    doc.text(`Status: ${codData.status}`, 14, 80);
+    doc.text(`Timestamp: ${codData.timestamp}`, 14, 90);
+
+    // 🙍 Customer Info (Removed Icons)
+    doc.setFont("helvetica", "bold");
+    doc.text("Customer Details:", 14, 100);
+    doc.setFont("helvetica", "normal");
+    doc.text(`Name: ${codData.name}`, 14, 110);
+    doc.text(`Phone: ${codData.phone}`, 14, 120);
+    doc.text(`Email: ${codData.email}`, 14, 130);
+    doc.text(`Address: ${codData.houseNumber}, ${codData.address}`, 14, 140);
+    doc.text(`Landmark: ${codData.landmark}`, 14, 150);
+    doc.text(`Pincode: ${codData.pincode}`, 14, 160);
+
+    // 🏷️ Booking Table
+    autoTable(doc, {
+      startY: 170,
+      head: [["Service", "Amount (₹)", "Payment Mode"]],
+      body: [[codData.service, codData.amount, codData.paymentMode]],
+      theme: "grid",
+      styles: { fontSize: 12, cellPadding: 5, halign: "center", valign: "middle" },
+      headStyles: { fillColor: [100, 149, 237], textColor: [255, 255, 255] }, // Light blue header
+      alternateRowStyles: { fillColor: [240, 248, 255] }, // Light alternate rows
+    });
+
+    // 🔽 Auto-Download Invoice as PDF
+    doc.save(`Invoice_${codData.paymentId}.pdf`);
+
+    // Show confirmation message
+    alert("COD Order Placed Successfully! Invoice downloaded.");
     navigate("/confirmation", { state: { ...codData } });
-  };
+};
+
+
 
   return (
-    <div className={`flex items-center justify-center min-h-screen bg-gray-100 darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"`}>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="max-w-lg w-full bg-white p-8 shadow-xl rounded-lg">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Book an Appointment</h2>
         <form onSubmit={handleCOD} className="space-y-4">
-          <input name="name" placeholder="Full Name" onChange={handleChange} className="input w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400 text-black" required />
-          <input name="phone" placeholder="Phone Number" onChange={handleChange} className="input w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400  text-black " required />
-          <input
-  name="email"
-  type="email"
-  placeholder="Email Address (optional)"
-  onChange={handleChange}
-  className="input w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400  text-black " required />
-
-          {/* House Number Input */}
-          <input name="houseNumber" placeholder="House Number" onChange={handleChange} className="input  text-black w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
-
-          {/* Address Input with Autocomplete */}
+          <input name="name" placeholder="Full Name" onChange={handleChange} className="w-full px-4 py-2 border rounded-lg text-black" required />
+          <input name="phone" placeholder="Phone Number" onChange={handleChange} className="w-full px-4 py-2 border rounded-lg text-black" required />
+          <input name="email" type="email" placeholder="Email Address (optional)" onChange={handleChange} className="w-full px-4 py-2 border text-black rounded-lg" required />
+          <input name="houseNumber" placeholder="House Number" onChange={handleChange} className="w-full px-4 py-2 border rounded-lg text-black" required />
           <div className="relative">
-            <input
-              ref={addressInputRef}
-              name="address"
-              value={formData.address}
-              placeholder="Street Address (Amritsar only)"
-              onChange={handleChange}
-              className="input text-black w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400"
-              required
-            />
-            {!googleLoaded && suggestions.length > 0 && (
-              <ul className="absolute bg-white border  text-black border-gray-300 w-full rounded-md mt-1 shadow-lg">
+            <input ref={addressInputRef} name="address" value={formData.address} placeholder="Street Address (Amritsar only)" onChange={handleChange} className= " text-black w-full px-4 py-2 border rounded-lg" required />
+            {suggestions.length > 0 && (
+              <ul className="absolute bg-white border w-full text-black rounded-md mt-1 shadow-lg">
                 {suggestions.map((location, index) => (
-                  <li
-                    key={index}
-                    className="p-2 cursor-pointer  text-black hover:bg-gray-200"
-                    onClick={() => handleSelectAddress(location)}
-                  >
+                  <li key={index} className="p-2 cursor-pointer text-black hover:bg-gray-200" onClick={() => handleSelectAddress(location)}>
                     {location}
                   </li>
                 ))}
               </ul>
             )}
           </div>
-
-          {/* Landmark & Pincode (Same Row) */}
           <div className="grid grid-cols-2 gap-4">
-            <input name="landmark" placeholder="Landmark" onChange={handleChange} className="input  text-black w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
-            <input name="pincode" placeholder="144301" className="input w-full px-4 py-2 border rounded-lg  text-black " />
+            <input name="landmark" placeholder="Landmark" onChange={handleChange} className="w-full text-black px-4 py-2 border rounded-lg" required />
+            <input name="pincode" value="143001" className="w-full px-4 py-2 border rounded-lg text-black" readOnly />
           </div>
-
-          <select name="service" onChange={handleChange} className="w-full  text-black px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required>
+          <select name="service" onChange={handleChange} className="w-full px-4 py-2 border rounded-lg text-black" required>
             <option value="">Select Service</option>
             <option value="Facial">Facial - ₹500</option>
             <option value="Hair Spa">Hair Spa - ₹800</option>
             <option value="Manicure">Manicure - ₹600</option>
           </select>
-
-          <input type="date" name="date" onChange={handleChange} className="w-full px-4  text-black py-2 border rounded-lg  " required />
-          <input type="time" name="time" onChange={handleChange} className="w-full  text-black px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400" required />
-
-          <button type="submit" className="bg-gray-500  text-black  py-2 px-4 rounded-lg hover:bg-gray-600 w-full">
-            Confirm Booking (COD)
-          </button>
-          {/* <button type="button" onClick={handleRazorpayPayment} className="bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 w-full mt-3">
-            Pay Now (UPI/Card)
-          </button> */}
+          <input type="date" name="date" onChange={handleChange} className="w-full text-black px-4 py-2 border rounded-lg" required />
+          <input type="time" name="time" onChange={handleChange} className="w-full px-4 py-2 text-black border rounded-lg" required />
+          <button type="submit" className="bg-gray-500   py-2 px-4 rounded-lg text-black w-full">Confirm Booking (COD)</button>
         </form>
       </div>
     </div>
