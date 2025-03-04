@@ -7,6 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 import BookingForm from './Components/BookingForm'
 import ContactForm from './Pages/Contact';
 import Confirmation from './Pages/Confirmation';
+import FacialTreatmentPage from './Pages/Categories/FacialTreatmentPage';
 const AppRoutes = () => {
   return (
     <div>
@@ -18,6 +19,7 @@ const AppRoutes = () => {
       <Route path="/contact" element={<ContactForm/>} />
       <Route path="/booking-form" element={<Booking/>} />
       <Route path="/Confirmation" element={<Confirmation/>} />
+      <Route path="/facial-treatment" element={<FacialTreatmentPage/>} />
 
     </Routes>
     </div>
