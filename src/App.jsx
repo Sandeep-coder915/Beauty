@@ -8,7 +8,12 @@ import Footer from './Components/Footer.jsx'
  
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("theme") === "light" && localStorage.getItem("theme") !== "dark" ? false : true;
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      return storedTheme === "dark";
+    } else {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
   });
 
   useEffect(() => {
@@ -21,16 +26,13 @@ function App() {
     }
   }, [darkMode]);
 
-
   return (
     <div className={darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"}>
-
-    <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-     <AppRoutes/>
-
-     <Footer darkMode={darkMode} />
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <AppRoutes/>
+      <Footer darkMode={darkMode} />
     </div>
   )
-}
+}  
 
-export default App
+export default App;
