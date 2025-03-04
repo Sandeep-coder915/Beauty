@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Truck, Gift, ShoppingCart } from "lucide-react";
+import { Truck, Gift, ShoppingCart ,Heart} from "lucide-react";
 
 const PromotionalContent = () => {
   const marqueeRef = useRef(null);
@@ -31,7 +31,7 @@ const PromotionalContent = () => {
       >
         <div className="flex items-center space-x-3 hover:text-pink-400 transition">
           <Truck className="w-6 h-6 text-yellow-400" />
-          <span>Service Availible only in Amristar</span>
+          <span>Service Availible only in Amritsar</span>
         </div>
         <div className="flex items-center space-x-3 hover:text-pink-400 transition">
           <Gift className="w-6 h-6 text-green-400" />
@@ -40,6 +40,10 @@ const PromotionalContent = () => {
         <div className="flex items-center space-x-3 hover:text-pink-400 transition">
           <ShoppingCart className="w-6 h-6 text-blue-400" />
           <span>Book an appointment and Get Extra 10% Off</span>
+        </div>
+        <div className="flex items-center space-x-3 hover:text-pink-400 transition">
+          <Heart className="w-6 h-6   fill-amber-600" />
+          <span>Pay At the Time Of Delivery(COD)</span>
         </div>
       </div>
     </div>

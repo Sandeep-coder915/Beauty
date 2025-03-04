@@ -10,7 +10,7 @@ const WhyChooseUs = ({ darkMode }) => {
     {
       icon: <CreditCard size={48} className="text-pink-500" />,
       title: "Flexible Payment Options",
-      description: "Pay via Cash on Delivery (COD), UPI, or credit/debit cards—secure and hassle-free.",
+      description: "Pay via Cash on Delivery (COD) And On Time of Delivery you can Pay Via Cah or  Upi also",
     },
     {
       icon: <ShieldCheck size={48} className="text-pink-500" />,

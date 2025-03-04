@@ -24,7 +24,7 @@ const socialIcons = [
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-8 px-4">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="max-w-6xl mx-auto grid grid-cols-2 row-gap-20 sm:grid-cols-2 md:grid-cols-4 gap-6">
         
         {/* Logo & Contact Section */}
         <div>
@@ -32,21 +32,21 @@ const Footer = () => {
           <p className="text-gray-400">Your beauty, our passion.</p>
           <div className="mt-4 space-y-2 text-sm">
             <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4" />
+              <Phone className="w-5 h-5 text-pink-500" />
               <span>+91 98765 43210</span>
             </div>
             <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4" />
+              <Mail className="w-5 h-5 text-pink-500" />
               <span className="sm:inline">contact@yourwebsite.com</span>
             </div>
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4" />
+              <MapPin className="w-5 h-5 text-pink-500" />
               <span>Amritsar, Punjab</span>
             </div>
           </div>
         </div>
 
-        {/* Footer Links Section (Uses map function) */}
+        {/* Footer Links Section */}
         {footerLinks.map((section, index) => (
           <div key={index}>
             <h3 className="text-lg font-semibold mb-3">{section.title}</h3>
@@ -65,7 +65,7 @@ const Footer = () => {
       <div className="mt-8 flex justify-center gap-6">
         {socialIcons.map((social, index) => (
           <a key={index} href={social.link} target="_blank" rel="noopener noreferrer">
-            <social.icon className="w-5 h-5 hover:text-gray-400 transition" />
+            <social.icon className="w-6 h-6 hover:text-gray-400 transition" />
           </a>
         ))}
       </div>

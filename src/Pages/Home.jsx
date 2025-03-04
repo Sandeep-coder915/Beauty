@@ -8,13 +8,14 @@ import BeforeAfterGallery from '../Components/BeforeAfterGallery'
 import BeauticiansList from '../Components/BeauticiansList'
 import Reviews from './Reviews'
 import TestimonialCarousel from './TestimonialCarousel'
+import TrustSection from '../Components/TrustSection'
 
 const Home = () => {
   return (
     <div>
       <Carousel />
-
       <PromotionalContent />
+      <TrustSection/>
       <Services />
       <WhyChooseUs/>
       <BeauticiansList/>

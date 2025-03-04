@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
+import { motion } from "framer-motion";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
@@ -49,6 +50,12 @@ const slides = [
 
 const Carousel = () => {
   return (
+    <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+  >
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
       navigation
@@ -78,6 +85,7 @@ const Carousel = () => {
         </SwiperSlide>
       ))}
     </Swiper>
+  </motion.div>
   );
 };
 
