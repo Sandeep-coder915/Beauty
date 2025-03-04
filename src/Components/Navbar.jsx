@@ -46,7 +46,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           <Link to="/" className="hover:text-pink-500">Home</Link>
           <Link to="/about-us" className="hover:text-pink-500">AboutUs</Link>
           <Link to="/services" className="hover:text-pink-500">Services</Link>
-          <Link to="/booking" className="hover:text-pink-500">Book Now</Link>
+          <Link to="/booking-form" className="hover:text-pink-500">Book Now</Link>
           <Link to="/contact" className="hover:text-pink-500">Contact</Link>
 
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { ShieldCheck, Star, BadgeCheck } from "lucide-react";
+import { motion } from "framer-motion";
 
 const beauticians = [
   {
@@ -60,6 +61,14 @@ const beauticians = [
 
 const BeauticiansList =({ darkMode }) => {
   return (
+    <motion.div
+    className="bg-white shadow-lg rounded-lg p-4"
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+    viewport={{ once: true, amount: 0.2 }} // Ensures animation triggers when 20% of the element is visible
+  >
+
     <div className={`container mx-auto py-10 bg-transparent  px-6 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100  text-pink-400'} `}>
       <h2 className="text-3xl font-bold text-center mb-6">🔒 Secure & Verified Beauticians</h2>
       <p className="text-center  mb-4">
@@ -111,6 +120,7 @@ const BeauticiansList =({ darkMode }) => {
         ))}
       </div>
     </div>
+    </motion.div>
   );
 };
 

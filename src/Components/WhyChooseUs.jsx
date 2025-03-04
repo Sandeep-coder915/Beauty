@@ -1,5 +1,5 @@
 import { Home, ShieldCheck, CreditCard, Sparkles } from "lucide-react";
-
+import { motion } from "framer-motion";
 const WhyChooseUs = ({ darkMode }) => {
   const features = [
     {
@@ -25,7 +25,15 @@ const WhyChooseUs = ({ darkMode }) => {
   ];
 
   return (
-    <section className={` bg-transparent ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100  text-pink-400'} p-4 rounded-lg`}>
+    <>
+      <motion.div
+      className="bg-white shadow-lg rounded-lg p-4"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true, amount: 0.2 }} // Ensures animation triggers when 20% of the element is visible
+    >
+        <section className={` bg-transparent ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100  text-pink-400'} p-4 rounded-lg`}>
       <div className="container mx-auto text-center px-6">
         <h2 className="text-4xl font-bold mb-6 text-pink-600">Why Choose Us?</h2>
         <p className="text-lg max-w-2xl mx-auto mb-10">
@@ -46,6 +54,8 @@ const WhyChooseUs = ({ darkMode }) => {
         </div>
       </div>
     </section>
+      </motion.div></>
+  
   );
 };
 
