@@ -1,6 +1,6 @@
 import { Home, ShieldCheck, CreditCard, Sparkles } from "lucide-react";
 
-const WhyChooseUs = () => {
+const WhyChooseUs = ({ darkMode }) => {
   const features = [
     {
       icon: <Home size={48} className="text-pink-500" />,
@@ -25,7 +25,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className={`  darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"`}>
+    <section className={` bg-transparent ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100  text-pink-400'} p-4 rounded-lg`}>
       <div className="container mx-auto text-center px-6">
         <h2 className="text-4xl font-bold mb-6 text-pink-600">Why Choose Us?</h2>
         <p className="text-lg max-w-2xl mx-auto mb-10">
@@ -39,7 +39,7 @@ const WhyChooseUs = () => {
               className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center transition-transform transform hover:scale-105"
             >
               {feature.icon}
-              <h3 className="text-xl font-semibold mt-4">{feature.title}</h3>
+              <h3 className="text-xl font-semibold mt-4 text-black">{feature.title}</h3>
               <p className="text-gray-600 text-center mt-2">{feature.description}</p>
             </div>
           ))}

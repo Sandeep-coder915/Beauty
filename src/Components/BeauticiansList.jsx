@@ -58,9 +58,9 @@ const beauticians = [
   },
 ];
 
-const BeauticiansList = () => {
+const BeauticiansList =({ darkMode }) => {
   return (
-    <div className={`"container mx-auto py-10 px-6 darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"`}>
+    <div className={`container mx-auto py-10 bg-transparent  px-6 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100  text-pink-400'} `}>
       <h2 className="text-3xl font-bold text-center mb-6">🔒 Secure & Verified Beauticians</h2>
       <p className="text-center  mb-4">
         Our professionals are ID-verified, trained, and certified to provide the best beauty services at your home.
@@ -74,7 +74,7 @@ const BeauticiansList = () => {
               alt={beautician.name}
               className="w-24 h-24 mx-auto rounded-full object-cover border-2 border-pink-500"
             />
-            <h3 className="text-xl font-semibold mt-3">{beautician.name}</h3>
+            <h3 className="text-xl font-semibold mt-3 border-red-400">{beautician.name}</h3>
             <p className="text-gray-500">{beautician.experience}</p>
 
             {/* Verified Badge */}

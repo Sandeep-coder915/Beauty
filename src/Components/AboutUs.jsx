@@ -26,19 +26,33 @@ export default function AboutUs({ darkMode }) {
       </div>
 
       {/* Founder Section */}
-      <div className="grid md:grid-cols-3 gap-6">
-        {[
-          { name: "Tania", role: "Co-Founder", image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp" },
-          // { name: "Simran", role: "Co-Founder", image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp" },
-          { name: "Sandeep", role: "Co-Founder", image: "https://cdn0.iconfinder.com/data/icons/avatars-3/512/avatar_bussiness_man-1024.png" }
-        ].map((founder, index) => (
-          <div key={index} className={`text-center shadow-lg p-6 rounded-2xl hover:shadow-2xl transition ${darkMode ? 'bg-gray-800 text-white' : 'bg-white  text-pink-400'}`}>
-            <img src={founder.image} alt={founder.name} className="w-40 h-40 mx-auto rounded-full object-cover border-4 border-pink-500" />
-            <h3 className="text-xl font-semibold mt-4">{founder.name}</h3>
-            <p className="text-gray-600">{founder.role}</p>
-          </div>
-        ))}
-      </div>
+      <div className="grid md:grid-cols-2 gap-6">
+  {[
+    {
+      name: "Tania",
+      role: "Co-Founder",
+      image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp",
+      description: "B.Sc. Graduate from Guru Nanak Dev University, Amritsar (2021-2024). Passionate about innovation and excellence.",
+      motto: "Dream big, stay focused, and make it happen!"
+    },
+    {
+      name: "Sandeep",
+      role: "Co-Founder",
+      image: "https://cdn0.iconfinder.com/data/icons/avatars-3/512/avatar_bussiness_man-1024.png",
+      description: "B.Tech in Software Engineering from IKGPTU Main Campus, Kapurthala (2020-2024). Driven by technology and problem-solving.",
+      motto: "Code your dreams into reality!"
+    }
+  ].map((founder, index) => (
+    <div key={index} className={`text-center shadow-lg p-6 rounded-2xl hover:shadow-2xl transition ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-pink-400'}`}>
+      <img src={founder.image} alt={founder.name} className="w-40 h-40 mx-auto rounded-full object-cover border-4 border-pink-500" />
+      <h3 className="text-xl font-semibold mt-4">{founder.name}</h3>
+      <p className="text-gray-600">{founder.role}</p>
+      <p className="mt-2 text-gray-500">{founder.description}</p>
+      <p className="mt-2 font-semibold text-pink-600">"{founder.motto}"</p>
+    </div>
+  ))}
+</div>
+
 
       {/* Benefits Section */}
       <div className={`p-6 rounded-2xl ${darkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-pink-400'}`}>
