@@ -20,7 +20,7 @@ const BookingForm = () => {
     e.preventDefault();
 
     // Send confirmation email
-    emailjs.send("service_xxxxx", "template_xxxxx", formData, "user_xxxxx")
+    emailjs.send("service_4dtz174","template_4cl31bi", formData, "77GhrP483V-tWB0LE")
       .then(() => alert("Booking confirmed! Check your email."))
       .catch((error) => alert("Failed to send confirmation email", error));
 

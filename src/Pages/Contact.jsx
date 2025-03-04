@@ -20,7 +20,7 @@ const ContactForm = () => {
     e.preventDefault();
     setLoading(true);
 
-    emailjs.send("service_xxxx", "template_xxxx", formData, "user_xxxx")
+    emailjs.send("service_4dtz174","template_4cl31bi", formData, "77GhrP483V-tWB0LE")
       .then(() => {
         setStatusMessage("Message sent successfully!");
         setFormData({ name: "", email: "", phone: "", message: "" });

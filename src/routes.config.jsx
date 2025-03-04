@@ -6,6 +6,7 @@ import Booking from './Pages/Booking'
 import { Routes, Route } from 'react-router-dom';
 import BookingForm from './Components/BookingForm'
 import ContactForm from './Pages/Contact';
+import Confirmation from './Pages/Confirmation';
 const AppRoutes = () => {
   return (
     <div>
@@ -16,6 +17,7 @@ const AppRoutes = () => {
 
       <Route path="/contact" element={<ContactForm/>} />
       <Route path="/booking-form" element={<Booking/>} />
+      <Route path="/Confirmation" element={<Confirmation/>} />
 
     </Routes>
     </div>
