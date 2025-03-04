@@ -2,7 +2,11 @@ import { Facebook, Instagram, Twitter, Mail, Phone } from "lucide-react";
 
 const ToplineHeader = ({ darkMode }) => {
   return (
-    <div className={`fixed top-0 left-0 w-full text-sm py-2 px-4 flex justify-between items-center z-50 text-center ${darkMode ?  "bg-gray-100 text-gray-900" :"bg-gray-900 text-white"  }`}>
+    <div
+      className={`fixed top-0 left-0 w-full text-sm py-2 px-4 sm:px-6 lg:px-10 flex justify-between items-center z-50 text-center ${
+        darkMode ? "bg-gray-100 text-gray-900" : "bg-gray-900 text-white"
+      }`}
+    >
       {/* Left Section - Social Media Links */}
       <div className="flex gap-4">
         <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
@@ -17,12 +21,12 @@ const ToplineHeader = ({ darkMode }) => {
       </div>
 
       {/* Right Section - Contact Info */}
-      <div className="flex gap-6 items-center  ">
+      <div className="flex gap-6 items-center">
         <div className="flex items-center gap-2">
           <Phone className="w-4 h-4" />
           <span>+91 98765 43210</span>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="hidden sm:flex items-center gap-2">
           <Mail className="w-4 h-4" />
           <span>contact@yourwebsite.com</span>
         </div>
