@@ -4,8 +4,8 @@ import emailjs from "emailjs-com";
 import { jsPDF } from "jspdf";
 import autoTable from "jspdf-autotable";
 import beautyathomeLogo from "./ss.png"; // Adjust the path if needed
-import { Calendar, Clock, MapPin, CreditCard, User, Phone, Mail, Home, Landmark, Barcode, CheckCircle } from "lucide-react"; // Lucide icons
 
+import { Loader } from "lucide-react"; // Import Loader icon for animation
 
 const amritsarLocations = [
   "Golden Temple", "Ranjit Avenue", "Lawrence Road", "Mall Road",
@@ -34,7 +34,7 @@ const Booking = () => {
   });
 
   const [suggestions, setSuggestions] = useState([]);
-
+  const [loading, setLoading] = useState(false);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -196,8 +196,15 @@ const Booking = () => {
           </select>
           <input type="date" name="date" onChange={handleChange} className="w-full text-black px-4 py-2 border rounded-lg" required />
           <input type="time" name="time" onChange={handleChange} className="w-full px-4 py-2 text-black border rounded-lg" required />
-          <button type="submit" className="bg-gray-500   py-2 px-4 rounded-lg text-black w-full">Confirm Booking (COD)</button>
-        </form>
+
+          <button
+      type="submit"
+      className="flex items-center justify-center py-2 px-4 rounded-lg w-full transition-all duration-300 bg-gray-500 text-black hover:bg-gray-700"
+      disabled={loading}
+    >
+      {loading ? <Loader className="animate-spin mr-2" size={18} /> : "Confirm Booking (COD)"}
+    </button>
+                  </form>
       </div>
     </div>
   );
