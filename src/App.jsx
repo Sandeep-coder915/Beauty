@@ -5,7 +5,7 @@ import './App.css'
 import Navbar from './Components/Navbar.jsx'
 import AppRoutes from './routes.config.jsx'
 import Footer from './Components/Footer.jsx'
-
+ 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem("theme") === "light" && localStorage.getItem("theme") !== "dark" ? false : true;
@@ -20,10 +20,11 @@ function App() {
       localStorage.setItem("theme", "light");
     }
   }, [darkMode]);
- 
+
 
   return (
     <div className={darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"}>
+
     <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
      <AppRoutes/>
 
