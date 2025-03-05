@@ -17,7 +17,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
 
         <div className="hidden md:flex space-x-6">
           <Link to="/" className="hover:text-pink-500">Home</Link>
-          <Link to="/about-us" className="hover:text-pink-500">AboutUs</Link>
+          <Link to="/about-us" className="hover:text-pink-500">About Us</Link>
           <Link to="/services" className="hover:text-pink-500">Services</Link>
           <Link to="/booking-form" className="hover:text-pink-500">Book Now</Link>
           <Link to="/contact" className="hover:text-pink-500">Contact</Link>
@@ -44,7 +44,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
       {menuOpen && (
         <div className={`md:hidden flex flex-col items-center py-4 space-y-4 ${darkMode ? "bg-gray-800 text-white" : "bg-gray-100 text-gray-900"}`}>
           <Link to="/" className="hover:text-pink-500">Home</Link>
-          <Link to="/about-us" className="hover:text-pink-500">AboutUs</Link>
+          <Link to="/about-us" className="hover:text-pink-500">About Us</Link>
           <Link to="/services" className="hover:text-pink-500">Services</Link>
           <Link to="/booking-form" className="hover:text-pink-500">Book Now</Link>
           <Link to="/contact" className="hover:text-pink-500">Contact</Link>
