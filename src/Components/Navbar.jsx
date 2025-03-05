@@ -13,7 +13,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
     <ToplineHeader/>
        <nav className={`px-6 py-4 shadow-md fixed top-[35px] w-full z-10 ${darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"}`}>
       <div className="flex justify-between items-center max-w-7xl mx-auto">
-        <Link to="/" className="hover:text-pink-500 text-2xl font-bold">Beauty at Home</Link>
+        <Link to="/" className="hover:text-pink-500 text-2xl font-bold">Beauty at Homes</Link>
 
         <div className="hidden md:flex space-x-6">
           <Link to="/" className="hover:text-pink-500">Home</Link>
