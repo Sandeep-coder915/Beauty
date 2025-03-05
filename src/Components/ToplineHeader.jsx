@@ -24,7 +24,7 @@ const ToplineHeader = ({ darkMode }) => {
       <div className="flex gap-6 items-center">
         <div className="flex items-center gap-2">
           <Phone className="w-4 h-4" />
-          <span>+91 98765 43210</span>
+          <span>+918360161602</span>
         </div>
         <div className="hidden sm:flex items-center gap-2">
           <Mail className="w-4 h-4" />
