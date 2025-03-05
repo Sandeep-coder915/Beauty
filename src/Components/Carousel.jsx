@@ -4,17 +4,17 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 // Import images for Desktop & Mobile
-// import desktop1 from "./images/1.jpg";
-import desktop2 from "./images/2.jpg";
-import desktop3 from "./images/3.jpg";
-import mobile1 from "./images/1.jpg";
-import mobile2 from "./images/2.jpg";
-import mobile3 from "./images/3.jpg";
+import desktop1 from "src/Components/images/1.jpg";
+import desktop2 from "src/Components/images/2.jpg";
+import desktop3 from "src/Components/images/3.jpg";
+import mobile1 from "src/Components/images/1.jpg";
+import mobile2 from "src/Components/images/2.jpg";
+import mobile3 from "src/Components/images/3.jpg";
 
 // Image Data
 const slides = [
   {
-    desktop: mobile1,
+    desktop: desktop1,
     mobile: mobile1,
     title: "Premium Beauty Services",
     description: "Get the best beauty treatments at your doorstep.",
