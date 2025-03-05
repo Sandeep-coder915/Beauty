@@ -107,7 +107,7 @@ const serviceCategories = [
 
 const Services = () => {
   return (
-<div className="container mx-auto py-10 px-6">
+<div className="container mx-auto py-9 px-5">
   <h2 className="text-3xl font-bold text-center mb-10 text-pink-600">
     ✨ Our Beauty Services ✨
   </h2>
@@ -119,7 +119,7 @@ const Services = () => {
       </h3>
 
       {/* Responsive Grid Layout */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2">
         {category.services.map((service, idx) => (
           <ServiceCard key={idx} service={service} />
         ))}
