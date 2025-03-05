@@ -16,7 +16,7 @@ const serviceCategories = [
   {
     title: "Hair Treatments & Styling",
     services: [
-      { name: "Any Hairstyle", image: "src/Pages/d.jpg", description: "Customized stylish hairdos start with RS.600", price: "₹600+" },
+      { name: "Any Hairstyle", image: "https://cdn.shopify.com/s/files/1/1412/4580/files/1_c81497c5-4134-4ba2-a943-9eb45f90e4ea_480x480.png?v=1655212092", description: "Customized stylish hairdos start with RS.600", price: "₹600+" },
       { name: "Rebonding (Normal Length)", image: "https://cdn.shopify.com/s/files/1/1412/4580/files/1_c81497c5-4134-4ba2-a943-9eb45f90e4ea_480x480.png?v=1655212092", description: "Straight and silky hair treatment", price: "₹4500" },
       { name: "Rebonding + Keratin + Highlights", image: "https://tigasouth-hairdresser.com/wp-content/uploads/2023/11/Highlights-ombre-1024x1024.webp", description: "Complete hair transformation", price: "₹5200" },
       { name: "KeratinSmooth", image: "https://www.libs.edu/wp-content/uploads/2018/10/KeratinSmoothingTreatments.jpg", description: "Smooth and shiny hair treatment", price: "₹4500" },

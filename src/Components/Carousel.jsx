@@ -14,24 +14,27 @@ import mobile3 from "src/Components/images/3.jpg";
 // Image Data
 const slides = [
   {
-    desktop: desktop1,
-    mobile: mobile1,
+    desktop:" https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    mobile: "https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Premium Beauty Services",
     description: "Get the best beauty treatments at your doorstep.",
     buttonText: "Book Now",
     buttonLink: "/booking",
   },
   {
-    desktop: desktop2,
-    mobile: mobile2,
+    desktop: 'https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    mobile: "https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
     title: "Hair & Skincare Experts",
     description: "Experience professional hair & skincare services.",
     buttonText: "Explore Services",
     buttonLink: "/services",
   },
   {
-    desktop: desktop3,
-    mobile: mobile3,
+    desktop: 'https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+
+    mobile: "https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
     title: "Luxury Spa Experience",
     description: "Relax & rejuvenate with our premium spa treatments.",
     buttonText: "View Packages",
