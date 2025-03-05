@@ -4,12 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 // Import images for Desktop & Mobile
-import desktop1 from "src/Components/images/1.jpg";
-import desktop2 from "src/Components/images/2.jpg";
-import desktop3 from "src/Components/images/3.jpg";
-import mobile1 from "src/Components/images/1.jpg";
-import mobile2 from "src/Components/images/2.jpg";
-import mobile3 from "src/Components/images/3.jpg";
+ 
 
 // Image Data
 const slides = [
