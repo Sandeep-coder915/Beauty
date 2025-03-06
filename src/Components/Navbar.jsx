@@ -25,6 +25,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
 
           <div className="hidden md:flex space-x-6">
             <Link to="/" className="hover:text-pink-500">Home</Link>
+            <Link to="/ComboOffers" className="hover:text-pink-500 font-semibold">Combo Offers</Link>
             <Link to="/about-us" className="hover:text-pink-500">About Us</Link>
             <Link to="/services" className="hover:text-pink-500">Services</Link>
             <Link to="/booking-form" className="hover:text-pink-500">Book Now</Link>
@@ -37,7 +38,13 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           </div>
 
           {/* Mobile Menu Button */}
+
+
+          <Link to="/ComboOffers" className="lg:hidden md:hidden text-lg font-semibold hover:text-pink-500">
+            Combo Offers
+          </Link>
           <div className="md:hidden flex items-center gap-4">
+
             <button onClick={() => setDarkMode(!darkMode)} className="hover:text-pink-500 flex items-center gap-2">
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>

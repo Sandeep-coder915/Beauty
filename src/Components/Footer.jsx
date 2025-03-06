@@ -11,7 +11,7 @@ const footerLinks = [
   },
   {
     title: "Support",
-    links: ["FAQ", "Privacy Policy", "Terms of Service", "Refund Policy"],
+    links: ["FAQ", "Privacy Policy", "Terms of Service" ],
   },
 ];
 
@@ -25,7 +25,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-8 px-4">
       <div className="max-w-6xl mx-auto grid grid-cols-2 row-gap-20 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        
+
         {/* Logo & Contact Section */}
         <div>
           <h2 className="text-xl font-bold mb-4">Beauty Services</h2>

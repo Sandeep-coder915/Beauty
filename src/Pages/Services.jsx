@@ -69,7 +69,7 @@ import ServiceCard from "../Components/ServiceCard";
 
 const serviceCategories = [
   {
-    title: "Facial & Skincare Combos",
+    title: "Facial & Skincare",
     services: [
       { name: "Gold Facial", image: "https://www.merakispa.in/cdn/shop/files/gold-facial-cost-procedure-how-to-do.jpg?v=1711968594", description: "Premium gold facial for glowing skin", price: "₹2000" },
       { name: "Diamond Facial", image: "https://cdn2.stylecraze.com/wp-content/uploads/2014/10/10-Best-Benefits-Of-Diamond-Facials.jpg.avif", description: "Luxury diamond facial treatment", price: "₹1499" },
@@ -108,13 +108,13 @@ const serviceCategories = [
 const Services =({ darkMode }) => {
   return (
 <div className="container mx-auto py-9 px-5">
-  <h2 className="text-3xl font-bold text-center mb-10 text-pink-900">
+  <h2 className="text-3xl font-bold  text-center mb-10 text-pink-900">
     ✨ Our Beauty Services ✨
   </h2>
 
   {serviceCategories.map((category, index) => (
     <div key={index} className="mb-12">
-      <h3 className={`text-2xl font-semibold text-black  mb-5 border-b-2 border-pink-400 pb-2  ${darkMode ? '  text-white' : '  text-pink-400'} `}>
+      <h3 className={`text-2xl font-semibold text-black text-center  mb-5 border-b-2 border-pink-400 pb-2  ${darkMode ? '  text-white' : '  text-pink-400'} `}>
         {category.title}
       </h3>
 
