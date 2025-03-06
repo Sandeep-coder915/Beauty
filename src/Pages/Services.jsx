@@ -49,7 +49,7 @@
 //           <h3 className="text-2xl font-semibold text-gray-800 mb-5 border-b-2 border-pink-400 pb-2">
 //             {category.title}
 //           </h3>
-          
+
 //           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 //             {category.services.map((service, idx) => (
 //               <ServiceCard key={idx} service={service} />
@@ -105,16 +105,16 @@ const serviceCategories = [
   },
 ];
 
-const Services = () => {
+const Services =({ darkMode }) => {
   return (
 <div className="container mx-auto py-9 px-5">
-  <h2 className="text-3xl font-bold text-center mb-10 text-pink-600">
+  <h2 className="text-3xl font-bold text-center mb-10 text-pink-900">
     ✨ Our Beauty Services ✨
   </h2>
 
   {serviceCategories.map((category, index) => (
     <div key={index} className="mb-12">
-      <h3 className="text-2xl font-semibold text-gray-800 mb-5 border-b-2 border-pink-400 pb-2">
+      <h3 className={`text-2xl font-semibold text-black  mb-5 border-b-2 border-pink-400 pb-2  ${darkMode ? '  text-white' : '  text-pink-400'} `}>
         {category.title}
       </h3>
 

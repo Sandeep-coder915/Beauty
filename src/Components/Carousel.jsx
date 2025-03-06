@@ -4,12 +4,12 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 // Import images for Desktop & Mobile
- 
+
 
 // Image Data
 const slides = [
   {
-    desktop:" https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    desktop:"../images/1.jpg",
     mobile: "https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Premium Beauty Services",
     description: "Get the best beauty treatments at your doorstep.",

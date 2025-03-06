@@ -9,9 +9,9 @@ function App() {
   const [darkMode, setDarkMode] = useState(() => {
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme) {
-      return storedTheme === "dark";
+      return storedTheme === "Light";
     } else {
-      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+      return window.matchMedia("(prefers-color-scheme: light)").matches;
     }
   });
 

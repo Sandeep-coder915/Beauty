@@ -13,7 +13,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
     <ToplineHeader/>
        <nav className={`px-6 py-4 shadow-md fixed top-[35px] w-full z-10 ${darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"}`}>
       <div className="flex justify-between items-center max-w-7xl mx-auto">
-        <Link to="/" className="hover:text-pink-500 text-2xl font-bold">Beauty at Homes</Link>
+        <Link to="/" className="hover:text-pink-500 text-2xl font-bold"> <img src="src/assets/1.svg" className=""></img></Link>
 
         <div className="hidden md:flex space-x-6">
           <Link to="/" className="hover:text-pink-500">Home</Link>
@@ -21,6 +21,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           <Link to="/services" className="hover:text-pink-500">Services</Link>
           <Link to="/booking-form" className="hover:text-pink-500">Book Now</Link>
           <Link to="/contact" className="hover:text-pink-500">Contact</Link>
+          {/* <Link to="/" className="hover:text-pink-500">Combo-Offers</Link> */}
 
           {/* Dark Mode Toggle */}
           <button onClick={() => setDarkMode(!darkMode)} className="hover:text-pink-500 flex items-center gap-2">
@@ -28,6 +29,9 @@ const Navbar = ({ darkMode, setDarkMode }) => {
 
           </button>
         </div>
+{/* 
+<Link to="/" className="lg:hidden hover:text-pink-500  font-bold">Combo-Offers</Link> */}
+
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center  gap-4  ">
