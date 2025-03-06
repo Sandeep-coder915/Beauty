@@ -85,6 +85,9 @@ const Navbar = ({darkMode,setDarkMode}) => {
           </Link>
         ))}
       </div>
+      <div className="h-22">
+
+      </div>
     </>
   );
 };

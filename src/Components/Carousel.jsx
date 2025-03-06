@@ -75,7 +75,7 @@ const Carousel = () => {
   useAutoSlide(nextSlide);
 
   return (
-    <div className="relative w-full h-[500px]  overflow-hidden mt-20">
+    <div className="relative w-full h-[500px]  overflow-hidden mt-2">
       {slides.map((slide, index) => (
         <motion.div
           key={index}
