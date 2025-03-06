@@ -10,31 +10,50 @@ import { motion } from "framer-motion";
 const slides = [
   {
     desktop: '/assets/banner/1.jpg',
-    mobile: '/assets/banner/1.jpg',
+    mobile: 'https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     title: " ",
     description: " ",
     buttonText: "Book Now",
     buttonLink: "/booking-form",
   },
   {
-    desktop: 'https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    mobile: "https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    desktop: '/assets/banner/120001.jpg',
+    mobile: 'https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 
-    title: "Hair & Skincare Experts",
-    description: "Experience professional hair & skincare services.",
+    title: " ",
+    description: " ",
     buttonText: "Explore Services",
     buttonLink: "/booking-form",
   },
   {
-    desktop: 'https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    desktop: '/assets/banner/120002.jpg',
 
-    mobile: "https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    mobile: 'https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 
-    title: "Luxury Spa Experience",
-    description: "Relax & rejuvenate with our premium spa treatments.",
+    title: " ",
+    description: " ",
     buttonText: "View Packages",
     buttonLink: "/booking-form",
   },
+  {
+    desktop: '/assets/banner/2.jpg',
+    mobile: 'https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+
+    title: " ",
+    description: "",
+    buttonText: "View Packages",
+    buttonLink: "/booking-form",
+  },
+  // {
+  //   desktop: 'https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+
+  //   mobile: "https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+
+  //   title: "Luxury Spa Experience",
+  //   description: "Relax & rejuvenate with our premium spa treatments.",
+  //   buttonText: "View Packages",
+  //   buttonLink: "/booking-form",
+  // },
 ];
 
 const useWindowWidth = () => {
@@ -75,7 +94,7 @@ const Carousel = () => {
   useAutoSlide(nextSlide);
 
   return (
-    <div className="relative w-full h-[500px]  overflow-hidden mt-2">
+    <div className="relative w-full h-[600px]  mt-6">
       {slides.map((slide, index) => (
         <motion.div
           key={index}
@@ -90,14 +109,15 @@ const Carousel = () => {
           <img
             src={isMobile ? slide.mobile : slide.desktop}
             alt={slide.title}
-            className="w-full h-full object-cover"
+            className="w-full h-[600px] object-cover"
           />
+            {/* //cover */}
           <div className="absolute inset-0  flex flex-col items-center justify-center text-center text-white p-6">
             <h2 className="text-3xl md:text-5xl font-bold">{slide.title}</h2>
             <p className="text-md md:text-lg mt-2">{slide.description}</p>
             <a
               href={slide.buttonLink}
-              className="mt-4 bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-lg text-lg font-medium transition"
+              className=" bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-lg text-lg font-medium transition mt-80"
             >
               {slide.buttonText}
             </a>
