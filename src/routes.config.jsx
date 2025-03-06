@@ -4,14 +4,17 @@ import { motion } from "framer-motion";
 import { AlertTriangle } from "lucide-react";
 import { Link } from "react-router-dom";
 import Home from "./Pages/Home";
-import Services from "./Pages/Services";
-import Booking from "./Pages/Booking";
+import Services from './Pages/Services/Services'
+import Booking from "./Pages/Booking/Booking";
 import ContactForm from "./Pages/Contact";
 import FacialTreatmentPage from "./Pages/Categories/FacialTreatmentPage";
 import AboutUs from "./Components/AboutUs";
-import ComboOffers from "./Pages/ComboOffers";
-import Invoice from "./Pages/Invoice";
+import ComboOffers from "./Pages/Services/ComboOffers";
+import Invoice from "./Pages/Booking/Invoice";
 import FAQ from "./Components/FAQ";
+import TermsAndServices from "./Pages/Policies/TermsAndServices";
+import PrivacyPolicy from "./Pages/Policies/PrivacyPolicy";
+import Reviews from "./Pages/Reviews";
 
 // 404 Page Component
 const NotFound =({ darkMode }) => {
@@ -80,6 +83,10 @@ const AppRoutes = () => {
       
       {/* Catch-all Route for 404 Page */}
       <Route path="*" element={<NotFound />} />
+      <Route path="/FAQ" element={<FAQ/>} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
+      <Route path="/terms-and-services" element={<TermsAndServices/>} />
+      <Route path="/reviews" element={<Reviews/>} />
     </Routes>
   );
 };

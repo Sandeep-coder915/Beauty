@@ -65,7 +65,7 @@
 
 
 import React from "react";
-import ServiceCard from "../Components/ServiceCard";
+import ServiceCard from "../../Components/ServiceCard";
 
 const serviceCategories = [
   {

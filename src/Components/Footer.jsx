@@ -1,17 +1,34 @@
+import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
 
 const footerLinks = [
   {
     title: "Quick Links",
-    links: ["Home", "About", "Services", "Blog", "Contact"],
+    links: [
+      { name: "Home", path: "/" },
+      { name: "About", path: "/about-us" },
+      { name: "Services", path: "/services" },
+      { name: "Blog", path: "/blog" },
+      { name: "Contact", path: "/contact" },
+    ],
   },
   {
     title: "Services",
-    links: ["Hair Care", "Skin Care", "Makeup", "Spa & Massage", "Nail Art"],
+    links: [
+      { name: "Hair Care", path: "/services#hair-care" },
+      { name: "Skin Care", path: "/services#skin-care" },
+      { name: "Makeup", path: "/services#makeup" },
+      { name: "Spa & Massage", path: "/services#spa-massage" },
+      { name: "Nail Art", path: "/services#nail-art" },
+    ],
   },
   {
     title: "Support",
-    links: ["FAQ", "Privacy Policy", "Terms of Service" ],
+    links: [
+      { name: "FAQ", path: "/faq" },
+      { name: "Privacy Policy", path: "/privacy-policy" },
+      { name: "Terms of Service", path: "/terms-and-services" },
+    ],
   },
 ];
 
@@ -24,7 +41,7 @@ const socialIcons = [
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-8 px-4">
-      <div className="max-w-6xl mx-auto grid grid-cols-2 row-gap-20 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6">
 
         {/* Logo & Contact Section */}
         <div>
@@ -53,7 +70,9 @@ const Footer = () => {
             <ul className="space-y-2 text-gray-400">
               {section.links.map((link, idx) => (
                 <li key={idx} className="hover:text-white transition">
-                  <a href="#" className="block">{link}</a>
+                  <Link to={link.path} className="block">
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
