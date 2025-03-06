@@ -9,12 +9,12 @@ import { motion } from "framer-motion";
 // Image Data
 const slides = [
   {
-    desktop:"../images/1.jpg",
-    mobile: "https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Premium Beauty Services",
-    description: "Get the best beauty treatments at your doorstep.",
+    desktop: '/assets/banner/1.jpg',
+    mobile: '/assets/banner/1.jpg',
+    title: " ",
+    description: " ",
     buttonText: "Book Now",
-    buttonLink: "/booking",
+    buttonLink: "/booking-form",
   },
   {
     desktop: 'https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -23,7 +23,7 @@ const slides = [
     title: "Hair & Skincare Experts",
     description: "Experience professional hair & skincare services.",
     buttonText: "Explore Services",
-    buttonLink: "/services",
+    buttonLink: "/booking-form",
   },
   {
     desktop: 'https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -33,7 +33,7 @@ const slides = [
     title: "Luxury Spa Experience",
     description: "Relax & rejuvenate with our premium spa treatments.",
     buttonText: "View Packages",
-    buttonLink: "/spa",
+    buttonLink: "/booking-form",
   },
 ];
 
@@ -92,7 +92,7 @@ const Carousel = () => {
             alt={slide.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center text-white p-6">
+          <div className="absolute inset-0  flex flex-col items-center justify-center text-center text-white p-6">
             <h2 className="text-3xl md:text-5xl font-bold">{slide.title}</h2>
             <p className="text-md md:text-lg mt-2">{slide.description}</p>
             <a
