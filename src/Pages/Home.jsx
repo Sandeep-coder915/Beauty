@@ -9,6 +9,7 @@ import BeauticiansList from '../Components/BeauticiansList'
 import Reviews from './Reviews'
 import TestimonialCarousel from './TestimonialCarousel'
 import TrustSection from '../Components/TrustSection'
+import FAQ from '../Components/FAQ'
 
 const Home = () => {
   return (
@@ -18,7 +19,9 @@ const Home = () => {
       <TrustSection/>
       <Services />
       <WhyChooseUs/>
+      <FAQ/>
       <BeauticiansList/>
+    
       <BeforeAfterGallery/>
 {/* <Reviews/> */}
 <TestimonialCarousel/>

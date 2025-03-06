@@ -28,7 +28,7 @@ function App() {
 
   return (
     <div className={darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"}>
-      <ScrollToTop /> {/* Ensure this is included for scrolling behavior */}
+      <ScrollToTop /> Ensure this is included for scrolling behavior
 
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 

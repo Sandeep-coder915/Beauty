@@ -11,6 +11,7 @@ import FacialTreatmentPage from "./Pages/Categories/FacialTreatmentPage";
 import AboutUs from "./Components/AboutUs";
 import ComboOffers from "./Pages/ComboOffers";
 import Invoice from "./Pages/Invoice";
+import FAQ from "./Components/FAQ";
 
 // 404 Page Component
 const NotFound =({ darkMode }) => {
@@ -58,6 +59,7 @@ const NotFound =({ darkMode }) => {
        Book An Appointment   ➡️
         </Link>
       </div>
+      <FAQ/>
     </motion.div>
   );
 };
