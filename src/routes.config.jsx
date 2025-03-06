@@ -4,12 +4,13 @@ import Services from './Pages/Services'
 import Booking from './Pages/Booking'
 
 import { Routes, Route } from 'react-router-dom';
-import BookingForm from './Components/BookingForm'
+
 import ContactForm from './Pages/Contact';
 import Confirmation from './Pages/Confirmation';
 import FacialTreatmentPage from './Pages/Categories/FacialTreatmentPage';
 import AboutUs from './Components/AboutUs';
 import ComboOffers from './Pages/ComboOffers';
+import Invoice from './Pages/Invoice';
 const AppRoutes = () => {
   return (
     <div>
@@ -24,6 +25,7 @@ const AppRoutes = () => {
       <Route path="/Confirmation" element={<Confirmation/>} />
       <Route path="/facial-treatment" element={<FacialTreatmentPage/>} />
       <Route path="/about-us" element={<AboutUs/>} />
+      <Route path="/invoice" element={<Invoice/>} />
 
     </Routes>
     </div>

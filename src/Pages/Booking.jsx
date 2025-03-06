@@ -53,36 +53,34 @@ const Booking = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const googleSheetURL =
+    "https://script.google.com/macros/s/AKfycbwszHdLGMP-qS4f9u-g8jlT8XunhodzwjE9QNtXdTTi0mMvcivG4950CIZeMS7IrvDZ/exec";
 
-  const googleSheetURL = "https://script.google.com/macros/s/AKfycbwszHdLGMP-qS4f9u-g8jlT8XunhodzwjE9QNtXdTTi0mMvcivG4950CIZeMS7IrvDZ/exec";
   const handleCOD = async (e) => {
     e.preventDefault();
     const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
 
-    const selectedServices = formData.services.length > 0
-    ? formData.services.map((s) => `${s.name} (₹${s.price})`).join(", ")
-    : "No service selected";  // Prevent empty service issue
+    const selectedServices =
+      formData.services.length > 0
+        ? formData.services.map((s) => `${s.name} (₹${s.price})`).join(", ")
+        : "No service selected";
 
     const bookingData = {
       ...formData,
-      services: selectedServices, // Send as a string
+      services: selectedServices,
       amount: totalAmount,
       timestamp,
     };
+
     // Send data to Google Sheets
     await fetch(googleSheetURL, {
       method: "POST",
-      mode: "no-cors", // ✅ Prevents CORS error but gives an opaque response
+      mode: "no-cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(bookingData),
     });
-    // Prepare the booking data
 
-
-
-
-
-    // Send the email
+    // Send confirmation email
     await emailjs.send(
       "service_4dtz174",
       "template_og9488e",
@@ -93,37 +91,17 @@ const Booking = () => {
         address: bookingData.address,
         landmark: bookingData.landmark,
         pincode: bookingData.pincode,
-        service: selectedServices, // Ensure service is sent correctly
+        service: selectedServices,
         date: bookingData.date,
         time: bookingData.time,
         paymentMode: bookingData.paymentMode,
-        amount: bookingData.amount
+        amount: bookingData.amount,
       },
       "77GhrP483V-tWB0LE"
     );
 
-    // Generate PDF invoice
-    const doc = new jsPDF();
-    doc.addImage(beautyathomeLogo, "PNG", 80, 10, 50, 20);
-    doc.setFontSize(18);
-    doc.text("Booking Invoice", 80, 40);
-    doc.setFontSize(12);
-    doc.text(`Booking ID: COD-${Date.now()}`, 14, 50);
-    doc.text(`Date: ${bookingData.date}`, 14, 60);
-    doc.text(`Time: ${bookingData.time}`, 14, 70);
-    doc.text(`Customer: ${bookingData.name}`, 14, 90);
-    doc.text(`Total Amount: ₹${bookingData.amount}`, 14, 100);
+    navigate("/invoice", { state: bookingData });
 
-    autoTable(doc, {
-      startY: 110,
-      head: [["Service", "Price (₹)"]],
-      body: formData.services.map((s) => [s.name, s.price]),
-      theme: "grid",
-    });
-
-    doc.save(`Invoice_${Date.now()}.pdf`);
-    alert("Booking confirmed! Invoice downloaded.");
-    navigate("/confirmation", { state: bookingData });
   };
 
 
