@@ -1,10 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from "emailjs-com";
-import { jsPDF } from "jspdf";
-import autoTable from "jspdf-autotable";
-import beautyathomeLogo from "./ss.png";
-
 
 const servicesList = [
 

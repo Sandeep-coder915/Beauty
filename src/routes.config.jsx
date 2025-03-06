@@ -6,7 +6,7 @@ import Booking from './Pages/Booking'
 import { Routes, Route } from 'react-router-dom';
 
 import ContactForm from './Pages/Contact';
-import Confirmation from './Pages/Confirmation';
+ 
 import FacialTreatmentPage from './Pages/Categories/FacialTreatmentPage';
 import AboutUs from './Components/AboutUs';
 import ComboOffers from './Pages/ComboOffers';
@@ -22,7 +22,7 @@ const AppRoutes = () => {
       <Route path="/contact" element={<ContactForm/>} />
       <Route path="/ComboOffers" element={<ComboOffers/>} />
       <Route path="/booking-form" element={<Booking/>} />
-      <Route path="/Confirmation" element={<Confirmation/>} />
+
       <Route path="/facial-treatment" element={<FacialTreatmentPage/>} />
       <Route path="/about-us" element={<AboutUs/>} />
       <Route path="/invoice" element={<Invoice/>} />
