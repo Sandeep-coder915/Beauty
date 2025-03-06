@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Navbar from './Components/Navbar.jsx';
-import AppRoutes from './routes.config.jsx';
-import Footer from './Components/Footer.jsx';
-import './App.css';
+import Navbar from "./Components/Navbar.jsx";
+import AppRoutes from "./routes.config.jsx";
+import Footer from "./Components/Footer.jsx";
+import ScrollToTop from "./Components/ScrollToTop.jsx";
+import "./App.css";
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -27,9 +28,10 @@ function App() {
 
   return (
     <div className={darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"}>
+      <ScrollToTop /> {/* Ensure this is included for scrolling behavior */}
+
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 
-      {/* Wrap sections with motion.div for scroll animations */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
