@@ -5,7 +5,14 @@ import { jsPDF } from "jspdf";
 import autoTable from "jspdf-autotable";
 import beautyathomeLogo from "./ss.png";
 
+
 const servicesList = [
+
+    { name: "Any Hairstyle", image: "https://cdn.shopify.com/s/files/1/1412/4580/files/1_c81497c5-4134-4ba2-a943-9eb45f90e4ea_480x480.png?v=1655212092", description: "Customized stylish hairdos start with RS.600", price: 600 },
+    { name: "Rebonding (Normal Length)", image: "https://cdn.shopify.com/s/files/1/1412/4580/files/1_c81497c5-4134-4ba2-a943-9eb45f90e4ea_480x480.png?v=1655212092", description: "Straight and silky hair treatment", price: 4500},
+    { name: "Rebonding + Keratin + Highlights", image: "https://tigasouth-hairdresser.com/wp-content/uploads/2023/11/Highlights-ombre-1024x1024.webp", description: "Complete hair transformation", price: 5200 },
+    { name: "KeratinSmooth", image: "https://www.libs.edu/wp-content/uploads/2018/10/KeratinSmoothingTreatments.jpg", description: "Smooth and shiny hair treatment", price: 4500 },
+
   { name: "Gold Facial", price: 2000 },
   { name: "Diamond Facial", price: 1499 },
   { name: "Bridal Facial", price: 1500 },
@@ -46,6 +53,8 @@ const Booking = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+
+  const googleSheetURL = "https://script.google.com/macros/s/AKfycbwszHdLGMP-qS4f9u-g8jlT8XunhodzwjE9QNtXdTTi0mMvcivG4950CIZeMS7IrvDZ/exec";
   const handleCOD = async (e) => {
     e.preventDefault();
     const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
@@ -54,13 +63,23 @@ const Booking = () => {
     ? formData.services.map((s) => `${s.name} (₹${s.price})`).join(", ")
     : "No service selected";  // Prevent empty service issue
 
-    // Prepare the booking data
     const bookingData = {
       ...formData,
       services: selectedServices, // Send as a string
       amount: totalAmount,
       timestamp,
     };
+    // Send data to Google Sheets
+    await fetch(googleSheetURL, {
+      method: "POST",
+      mode: "no-cors", // ✅ Prevents CORS error but gives an opaque response
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(bookingData),
+    });
+    // Prepare the booking data
+
+
+
 
 
     // Send the email
@@ -123,9 +142,9 @@ const Booking = () => {
             <input name="pincode" value="143001" className="w-full px-4 py-2 border rounded-lg text-black" readOnly />
           </div>
 
-          <div className="text-black">Select Services:</div>
+          <div className="text-black  ">Select Services:</div>
           {servicesList.map((service) => (
-            <label key={service.name} className="flex items-center gap-2">
+            <label key={service.name} className="flex items-center gap-2 dark:text-black">
               <input type="checkbox" onChange={() => handleServiceSelection(service)} checked={formData.services.includes(service)} />
               {service.name} - ₹{service.price}
             </label>
