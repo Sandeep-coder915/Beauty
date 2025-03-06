@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from "emailjs-com";
+ // Initialize loading state
 
 const servicesList = [
 
@@ -18,6 +19,9 @@ const servicesList = [
 
 const Booking = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -54,6 +58,8 @@ const Booking = () => {
 
   const handleCOD = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    try {
     const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
 
     const selectedServices =
@@ -97,13 +103,18 @@ const Booking = () => {
     );
 
     navigate("/invoice", { state: bookingData });
-
-  };
+  } catch (error) {
+    console.error("Error during booking:", error);
+  } finally {
+    setLoading(false); // Hide loader after processing
+  }
+};
 
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="max-w-lg w-full bg-white p-8 shadow-xl rounded-lg">
+    <div className="w-full max-w-lg md:max-w-2xl lg:max-w-3xl bg-white p-10 shadow-xl rounded-lg">
+
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Book an Appointment</h2>
         <form onSubmit={handleCOD} className="space-y-4">
           <input name="name" placeholder="Full Name" onChange={handleChange} className="w-full px-4 py-2 border rounded-lg text-black" required />
@@ -116,20 +127,57 @@ const Booking = () => {
             <input name="pincode" value="143001" className="w-full px-4 py-2 border rounded-lg text-black" readOnly />
           </div>
 
-          <div className="text-black  ">Select Services:</div>
-          {servicesList.map((service) => (
-            <label key={service.name} className="flex items-center gap-2 dark:text-black">
-              <input type="checkbox" onChange={() => handleServiceSelection(service)} checked={formData.services.includes(service)} />
-              {service.name} - ₹{service.price}
-            </label>
-          ))}
+          <div className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Select Services:</div>
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+  {servicesList.map((service) => (
+    <label
+      key={service.name}
+      className={`flex items-center gap-3 p-4 border-2 rounded-lg cursor-pointer transition-all
+                  ${formData.services.includes(service) ? "border-green-500 bg-green-100 shadow-lg" : "border-gray-300 bg-white"}
+                  hover:border-green-500 hover:bg-green-50 dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700`}
+    >
+      <input
+        type="checkbox"
+        className="hidden"
+        onChange={() => handleServiceSelection(service)}
+        checked={formData.services.includes(service)}
+      />
+      <div className="flex items-center gap-3">
+        <div className={`w-6 h-6 flex items-center justify-center border-2 rounded-full ${formData.services.includes(service) ? "border-green-500 bg-green-500" : "border-gray-400"}`}>
+          {formData.services.includes(service) && <span className="text-white font-bold">✓</span>}
+        </div>
+        <div>
+          <p className="font-medium text-gray-900 dark:text-white">{service.name}</p>
+          <p className="text-sm text-gray-600 dark:text-gray-300">₹{service.price}</p>
+        </div>
+      </div>
+    </label>
+  ))}
+</div>
+
 
           <div className="text-lg font-bold text-black">Total Amount: ₹{totalAmount}</div>
           <input type="date" name="date" onChange={handleChange} className="w-full text-black px-4 py-2 border rounded-lg" required />
           <input type="time" name="time" onChange={handleChange} className="w-full px-4 py-2 text-black border rounded-lg" required />
-          <button type="submit" className="py-2 px-4 rounded-lg w-full bg-gray-500 text-black hover:bg-gray-700">
-            Confirm Booking (COD)
-          </button>
+          <button
+  type="submit"
+  className="relative py-3 px-6 w-full rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold shadow-lg hover:from-blue-600 hover:to-blue-800 transition-all duration-300 flex items-center justify-center"
+  disabled={loading} // Disable button when processing
+>
+  {loading ? (
+    <div className="flex items-center gap-2">
+      <svg className="w-5 h-5 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+      </svg>
+      Processing...
+    </div>
+  ) : (
+    "Confirm Booking (COD)"
+  )}
+</button>
+
+
         </form>
       </div>
     </div>
