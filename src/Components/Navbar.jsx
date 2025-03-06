@@ -29,7 +29,7 @@ const Navbar = () => {
 
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           {/* Logo */}
-          <Link to="/" className="text-xl font-bold">LOGO</Link>
+          <Link to="/" className="text-xl font-bold"><img src="/assets/1.svg" alt="" /></Link>
 
           {/* Centered Combo Offers (Only on small screens) */}
           <div className="md:hidden absolute left-1/2 transform -translate-x-1/2">
