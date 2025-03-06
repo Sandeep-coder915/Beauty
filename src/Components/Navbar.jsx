@@ -3,9 +3,9 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Home, Info, Scissors, CalendarCheck, Mail, Gift, Sun, Moon } from "lucide-react";
 import ToplineHeader from "./ToplineHeader";
 
-const Navbar = () => {
+const Navbar = ({darkMode,setDarkMode}) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+
   const location = useLocation();
   const [activeLink, setActiveLink] = useState(location.pathname);
 
@@ -27,9 +27,10 @@ const Navbar = () => {
       <ToplineHeader />
       <nav className={`fixed top-8 w-full z-50 px-6 py-4 shadow-md transition-all duration-300 ${darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"}`}>
 
+
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           {/* Logo */}
-          <Link to="/" className="text-xl font-bold"><img src="/assets/1.svg" alt="" /></Link>
+          <Link to="/" className="text-xl font-bold">LOGO</Link>
 
           {/* Centered Combo Offers (Only on small screens) */}
           <div className="md:hidden absolute left-1/2 transform -translate-x-1/2">
@@ -68,6 +69,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div className={`md:hidden fixed top-[90px] w-full flex flex-col items-center py-4 space-y-4 z-50 transition-all duration-300 ${menuOpen ? "h-auto opacity-100 visible" : "h-0 opacity-0 invisible"} ${darkMode ? "bg-gray-800 text-white" : "bg-gray-100 text-gray-900"}`}>
+
 
         {navItems.map((item) => (
           <Link
