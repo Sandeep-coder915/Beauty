@@ -1,35 +1,85 @@
-import React from 'react'
-import Home from './Pages/Home'
-import Services from './Pages/Services'
-import Booking from './Pages/Booking'
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { motion } from "framer-motion";
+import { AlertTriangle } from "lucide-react";
+import { Link } from "react-router-dom";
+import Home from "./Pages/Home";
+import Services from "./Pages/Services";
+import Booking from "./Pages/Booking";
+import ContactForm from "./Pages/Contact";
+import FacialTreatmentPage from "./Pages/Categories/FacialTreatmentPage";
+import AboutUs from "./Components/AboutUs";
+import ComboOffers from "./Pages/ComboOffers";
+import Invoice from "./Pages/Invoice";
 
-import { Routes, Route } from 'react-router-dom';
+// 404 Page Component
+const NotFound =({ darkMode }) => {
+  return (
+    <motion.div
+      className={`flex flex-col items-center justify-center  text-center p-20  ${darkMode ? 'bg-amber-600 text-white' : 'bg-yellow-50  text-pink-400'} `}
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      {/* Warning Icon with Animation */}
+      <AlertTriangle className="text-red-500 w-20 h-20 animate-bounce" />
 
-import ContactForm from './Pages/Contact';
+      {/* Main 404 Message */}
+      <h1 className="text-6xl font-extrabold text-gray-800 mt-6">404</h1>
+      <p className="text-2xl text-gray-600 mt-2">Oops! Page Not Found</p>
+      <p className="text-md text-gray-500 mt-2">
+        The page you are looking for might have been removed or doesn't exist.
+      </p>
+
+      {/* Navigation Links */}
+      <div className="mt-6 flex flex-wrap justify-center gap-4">
+        <Link
+          to="/"
+          className="px-5 py-3 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 transition"
+        >
+          🔙 Go Back Home
+        </Link>
+        <Link
+          to="/services"
+          className="px-5 py-3 bg-green-600 text-white rounded-lg shadow-lg hover:bg-green-700 transition"
+        >
+          💆‍♀️ Explore Services
+        </Link>
+        <Link
+          to="/about-us"
+          className="px-5 py-3 bg-purple-600 text-white rounded-lg shadow-lg hover:bg-purple-700 transition"
+        >
+          ℹ️ About Us
+        </Link>
+        <Link
+          to="/about-us"
+          className="px-5 py-3 bg-black text-white rounded-lg shadow-lg hover:bg-purple-700 transition"
+        >
+       Book An Appointment   ➡️
+        </Link>
+      </div>
+    </motion.div>
+  );
+};
+
  
-import FacialTreatmentPage from './Pages/Categories/FacialTreatmentPage';
-import AboutUs from './Components/AboutUs';
-import ComboOffers from './Pages/ComboOffers';
-import Invoice from './Pages/Invoice';
+
 const AppRoutes = () => {
   return (
-    <div>
-
     <Routes>
-      <Route path="/" element={<Home/>} />
+      <Route path="/" element={<Home />} />
       <Route path="/services" element={<Services />} />
-
-      <Route path="/contact" element={<ContactForm/>} />
-      <Route path="/ComboOffers" element={<ComboOffers/>} />
-      <Route path="/booking-form" element={<Booking/>} />
-
-      <Route path="/facial-treatment" element={<FacialTreatmentPage/>} />
-      <Route path="/about-us" element={<AboutUs/>} />
-      <Route path="/invoice" element={<Invoice/>} />
-
+      <Route path="/contact" element={<ContactForm />} />
+      <Route path="/ComboOffers" element={<ComboOffers />} />
+      <Route path="/booking-form" element={<Booking />} />
+      <Route path="/facial-treatment" element={<FacialTreatmentPage />} />
+      <Route path="/about-us" element={<AboutUs />} />
+      <Route path="/invoice" element={<Invoice />} />
+      
+      {/* Catch-all Route for 404 Page */}
+      <Route path="*" element={<NotFound />} />
     </Routes>
-    </div>
-  )
-}
+  );
+};
 
-export default AppRoutes
+export default AppRoutes;

@@ -1,21 +1,32 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from "emailjs-com";
- // Initialize loading state
+// Initialize loading state
 
 const servicesList = [
 
-    { name: "Any Hairstyle", image: "https://cdn.shopify.com/s/files/1/1412/4580/files/1_c81497c5-4134-4ba2-a943-9eb45f90e4ea_480x480.png?v=1655212092", description: "Customized stylish hairdos start with RS.600", price: 600 },
-    { name: "Rebonding (Normal Length)", image: "https://cdn.shopify.com/s/files/1/1412/4580/files/1_c81497c5-4134-4ba2-a943-9eb45f90e4ea_480x480.png?v=1655212092", description: "Straight and silky hair treatment", price: 4500},
-    { name: "Rebonding + Keratin + Highlights", image: "https://tigasouth-hairdresser.com/wp-content/uploads/2023/11/Highlights-ombre-1024x1024.webp", description: "Complete hair transformation", price: 5200 },
-    { name: "KeratinSmooth", image: "https://www.libs.edu/wp-content/uploads/2018/10/KeratinSmoothingTreatments.jpg", description: "Smooth and shiny hair treatment", price: 4500 },
+  { name: "Any Hairstyle", price: 600 },
+  { name: "Rebonding (Normal Length)", price: 4500 },
+  { name: "Rebonding + Keratin + Highlights", price: 5200 },
+  { name: "KeratinSmooth", price: 4500 },
 
   { name: "Gold Facial", price: 2000 },
   { name: "Diamond Facial", price: 1499 },
   { name: "Bridal Facial", price: 1500 },
   { name: "Fruit Facial", price: 799 },
   { name: "Bleach, Facial, Full Leg Wax, Arm Wax, Threading", price: 1800 },
+  { name: "Any Hairstyle",  price: 600 },
+  { name: "Rebonding (Normal Length)", price:450 },
+  { name: "Rebonding + Keratin + Highlights", price: 5200 },
+  { name: "KeratinSmooth", price: 4500 },
+  { name: "Full Body Wax",   price: 3000 },
+  { name: "Bikini Wax",   price: 699 },
+  { name: "Body Polishing",  price: 2000 },
+  { name: "Manicure & Pedicure",   price: 1200 },
+  { name: "Nail Cut & File + Foot Massage",   price: 500 },
+
 ];
+
 
 const Booking = () => {
   const navigate = useNavigate();
@@ -60,60 +71,60 @@ const Booking = () => {
     e.preventDefault();
     setLoading(true);
     try {
-    const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+      const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
 
-    const selectedServices =
-      formData.services.length > 0
-        ? formData.services.map((s) => `${s.name} (₹${s.price})`).join(", ")
-        : "No service selected";
+      const selectedServices =
+        formData.services.length > 0
+          ? formData.services.map((s) => `${s.name} (₹${s.price})`).join(", ")
+          : "No service selected";
 
-    const bookingData = {
-      ...formData,
-      services: selectedServices,
-      amount: totalAmount,
-      timestamp,
-    };
+      const bookingData = {
+        ...formData,
+        services: selectedServices,
+        amount: totalAmount,
+        timestamp,
+      };
 
-    // Send data to Google Sheets
-    await fetch(googleSheetURL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(bookingData),
-    });
+      // Send data to Google Sheets
+      await fetch(googleSheetURL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(bookingData),
+      });
 
-    // Send confirmation email
-    await emailjs.send(
-      "service_4dtz174",
-      "template_og9488e",
-      {
-        user_name: bookingData.name,
-        phone: bookingData.phone,
-        houseNumber: bookingData.houseNumber,
-        address: bookingData.address,
-        landmark: bookingData.landmark,
-        pincode: bookingData.pincode,
-        service: selectedServices,
-        date: bookingData.date,
-        time: bookingData.time,
-        paymentMode: bookingData.paymentMode,
-        amount: bookingData.amount,
-      },
-      "77GhrP483V-tWB0LE"
-    );
+      // Send confirmation email
+      await emailjs.send(
+        "service_4dtz174",
+        "template_og9488e",
+        {
+          user_name: bookingData.name,
+          phone: bookingData.phone,
+          houseNumber: bookingData.houseNumber,
+          address: bookingData.address,
+          landmark: bookingData.landmark,
+          pincode: bookingData.pincode,
+          service: selectedServices,
+          date: bookingData.date,
+          time: bookingData.time,
+          paymentMode: bookingData.paymentMode,
+          amount: bookingData.amount,
+        },
+        "77GhrP483V-tWB0LE"
+      );
 
-    navigate("/invoice", { state: bookingData });
-  } catch (error) {
-    console.error("Error during booking:", error);
-  } finally {
-    setLoading(false); // Hide loader after processing
-  }
-};
+      navigate("/invoice", { state: bookingData });
+    } catch (error) {
+      console.error("Error during booking:", error);
+    } finally {
+      setLoading(false); // Hide loader after processing
+    }
+  };
 
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-    <div className="w-full max-w-lg md:max-w-2xl lg:max-w-3xl bg-white p-10 shadow-xl rounded-lg">
+      <div className="w-full max-w-lg md:max-w-2xl lg:max-w-3xl bg-white p-10 shadow-xl rounded-lg">
 
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Book an Appointment</h2>
         <form onSubmit={handleCOD} className="space-y-4">
@@ -128,54 +139,54 @@ const Booking = () => {
           </div>
 
           <div className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Select Services:</div>
-<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-  {servicesList.map((service) => (
-    <label
-      key={service.name}
-      className={`flex items-center gap-3 p-4 border-2 rounded-lg cursor-pointer transition-all
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {servicesList.map((service) => (
+              <label
+                key={service.name}
+                className={`flex items-center gap-3 p-4 border-2 rounded-lg cursor-pointer transition-all
                   ${formData.services.includes(service) ? "border-green-500 bg-green-100 shadow-lg" : "border-gray-300 bg-white"}
                   hover:border-green-500 hover:bg-green-50 dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700`}
-    >
-      <input
-        type="checkbox"
-        className="hidden"
-        onChange={() => handleServiceSelection(service)}
-        checked={formData.services.includes(service)}
-      />
-      <div className="flex items-center gap-3">
-        <div className={`w-6 h-6 flex items-center justify-center border-2 rounded-full ${formData.services.includes(service) ? "border-green-500 bg-green-500" : "border-gray-400"}`}>
-          {formData.services.includes(service) && <span className="text-white font-bold">✓</span>}
-        </div>
-        <div>
-          <p className="font-medium text-gray-900 dark:text-white">{service.name}</p>
-          <p className="text-sm text-gray-600 dark:text-gray-300">₹{service.price}</p>
-        </div>
-      </div>
-    </label>
-  ))}
-</div>
+              >
+                <input
+                  type="checkbox"
+                  className="hidden"
+                  onChange={() => handleServiceSelection(service)}
+                  checked={formData.services.includes(service)}
+                />
+                <div className="flex items-center gap-3">
+                  <div className={`w-6 h-6 flex items-center justify-center border-2 rounded-full ${formData.services.includes(service) ? "border-green-500 bg-green-500" : "border-gray-400"}`}>
+                    {formData.services.includes(service) && <span className="text-white font-bold">✓</span>}
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900 dark:text-white">{service.name}</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">₹{service.price}</p>
+                  </div>
+                </div>
+              </label>
+            ))}
+          </div>
 
 
           <div className="text-lg font-bold text-black">Total Amount: ₹{totalAmount}</div>
           <input type="date" name="date" onChange={handleChange} className="w-full text-black px-4 py-2 border rounded-lg" required />
           <input type="time" name="time" onChange={handleChange} className="w-full px-4 py-2 text-black border rounded-lg" required />
           <button
-  type="submit"
-  className="relative py-3 px-6 w-full rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold shadow-lg hover:from-blue-600 hover:to-blue-800 transition-all duration-300 flex items-center justify-center"
-  disabled={loading} // Disable button when processing
->
-  {loading ? (
-    <div className="flex items-center gap-2">
-      <svg className="w-5 h-5 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
-      </svg>
-      Processing...
-    </div>
-  ) : (
-    "Confirm Booking (COD)"
-  )}
-</button>
+            type="submit"
+            className="relative py-3 px-6 w-full rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold shadow-lg hover:from-blue-600 hover:to-blue-800 transition-all duration-300 flex items-center justify-center"
+            disabled={loading} // Disable button when processing
+          >
+            {loading ? (
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 animate-spin text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                </svg>
+                Processing...
+              </div>
+            ) : (
+              "Confirm Booking (COD) ➡️"
+            )}
+          </button>
 
 
         </form>
