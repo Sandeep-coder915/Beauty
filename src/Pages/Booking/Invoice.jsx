@@ -86,7 +86,7 @@ const Invoice = ({ darkmode }) => {
 
   return (
     <div
-      className={`flex items-center justify-center min-h-screen p-6 ${
+      className={`flex items-center justify-center   p-6 ${
         darkmode ? "bg-gray-100 text-gray-900" : "bg-gray-900 text-white"
       }`}
     >

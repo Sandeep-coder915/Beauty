@@ -10,18 +10,27 @@ import Reviews from './Reviews'
 import TestimonialCarousel from './TestimonialCarousel'
 import TrustSection from '../Components/TrustSection'
 import FAQ from '../Components/FAQ'
+import TrueFocus from '../Components/TrueFocus'
 
 const Home = () => {
   return (
     <div>
       <Carousel />
+      <TrueFocus
+sentence="Payment After Service"
+manualMode={false}
+blurAmount={5}
+borderColor="rgba(0,216,255,0.6)"
+animationDuration={0.2}
+pauseBetweenAnimations={1}
+/>
       <PromotionalContent />
       <TrustSection/>
       <Services />
       <WhyChooseUs/>
       <FAQ/>
       <BeauticiansList/>
-    
+
       <BeforeAfterGallery/>
 {/* <Reviews/> */}
 <TestimonialCarousel/>

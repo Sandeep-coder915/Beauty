@@ -30,7 +30,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className={`flex items-center justify-center min-h-screen bg-gray-100 px-4 darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"`}>
+    <div className={`flex items-center justify-center mt-2 bg-gray-100 px-4 darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"`}>
       <div className="max-w-lg w-full bg-white p-8 shadow-xl rounded-lg">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Contact Us</h2>
 

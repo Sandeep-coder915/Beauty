@@ -5,10 +5,7 @@ import emailjs from "emailjs-com";
 
 const servicesList = [
 
-  { name: "Any Hairstyle", price: 600 },
-  { name: "Rebonding (Normal Length)", price: 4500 },
-  { name: "Rebonding + Keratin + Highlights", price: 5200 },
-  { name: "KeratinSmooth", price: 4500 },
+
 
   { name: "Gold Facial", price: 2000 },
   { name: "Diamond Facial", price: 1499 },
@@ -16,7 +13,7 @@ const servicesList = [
   { name: "Fruit Facial", price: 799 },
   { name: "Bleach, Facial, Full Leg Wax, Arm Wax, Threading", price: 1800 },
   { name: "Any Hairstyle",  price: 600 },
-  { name: "Rebonding (Normal Length)", price:450 },
+  { name: "Rebonding (Normal Length)", price:4500 },
   { name: "Rebonding + Keratin + Highlights", price: 5200 },
   { name: "KeratinSmooth", price: 4500 },
   { name: "Full Body Wax",   price: 3000 },
@@ -167,10 +164,35 @@ const Booking = () => {
           </div>
 
 
-          <div className="text-lg font-bold text-black">Total Amount: ₹{totalAmount}</div>
-          <input type="date" name="date" onChange={handleChange} className="w-full text-black px-4 py-2 border rounded-lg" required />
-          <input type="time" name="time" onChange={handleChange} className="w-full px-4 py-2 text-black border rounded-lg" required />
-          <button
+          <div className="bg-gradient-to-r from-gray-800 to-gray-900 p-6 rounded-xl shadow-lg text-center">
+  <div className="text-2xl font-extrabold text-white tracking-wide mb-4">
+    Total Amount: <span className="text-green-400">₹{totalAmount}</span>
+  </div>
+
+  <div className="flex flex-col space-y-4">
+    <div className="relative">
+      <label className="block text-gray-300 font-medium mb-1">Select Date</label>
+      <input
+        type="date"
+        name="date"
+        onChange={handleChange}
+        className="w-full px-4 py-3 bg-gray-700 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"
+        required
+      />
+    </div>
+
+    <div className="relative">
+      <label className="block text-gray-300 font-medium mb-1">Select Time</label>
+      <input
+        type="time"
+        name="time"
+        onChange={handleChange}
+        className="w-full px-4 py-3 bg-gray-700 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
+      />
+    </div>
+  </div>
+</div>
+         <button
             type="submit"
             className="relative py-3 px-6 w-full rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold shadow-lg hover:from-blue-600 hover:to-blue-800 transition-all duration-300 flex items-center justify-center"
             disabled={loading} // Disable button when processing

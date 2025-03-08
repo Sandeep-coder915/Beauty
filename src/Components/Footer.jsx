@@ -40,7 +40,7 @@ const socialIcons = [
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-8 px-4">
+    <footer className="bg-gray-900 text-white py-8 px-4 sm:px-6 lg:px-10 ">
       <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6">
 
         {/* Logo & Contact Section */}
