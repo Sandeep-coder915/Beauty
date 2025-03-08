@@ -30,12 +30,12 @@ const Navbar = ({darkMode,setDarkMode}) => {
 
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           {/* Logo */}
- 
-          <Link to="/" className="text-xl font-bold"><img src="/assets/TheHomes.svg" alt="" /></Link>
-           
+
+          <Link to="/" className="text-xl font-bold " ><img src="/assets/TheHomes.svg" alt="" /></Link>
+
           {/* Centered Combo Offers (Only on small screens) */}
           <div className="md:hidden absolute left-1/2 transform -translate-x-1/2">
-            <Link to="/ComboOffers" className="text-lg font-semibold hover:text-pink-500 flex items-center gap-2">
+            <Link to="/ComboOffers" className="text-[15px] font-semibold hover:text-pink-500 flex items-center gap-2">
               <Gift size={20} /> Combo Offers
             </Link>
           </div>
