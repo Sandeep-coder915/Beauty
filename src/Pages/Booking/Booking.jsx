@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from "emailjs-com";
- 
+// Initialize loading state
+
 const servicesList = [
 
 
@@ -134,7 +135,7 @@ const Booking = () => {
             <input name="pincode" value="143001" className="w-full px-4 py-2 border rounded-lg text-black" readOnly />
           </div>
 
-          <div className="text-xl font-semibold mb-2 text-gray-800 ">Select Services:</div>
+          <div className="text-xl font-semibold mb-2 text-gray-800  ">Select Services:</div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {servicesList.map((service) => (
               <label
