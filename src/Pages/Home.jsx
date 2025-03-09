@@ -11,21 +11,21 @@ import TestimonialCarousel from './TestimonialCarousel'
 import TrustSection from '../Components/TrustSection'
 import FAQ from '../Components/FAQ'
 import TrueFocus from '../Components/TrueFocus'
-// import Popup from '../Components/Popup'
+import Popup from '../Components/Popup'
 
 const Home = () => {
   return (
     <div>
-      {/* <Popup/> */}
+      <Popup/>
       <Carousel />
-      <TrueFocus
+      {/* <TrueFocus
 sentence="Payment After Service"
 manualMode={false}
 blurAmount={5}
 borderColor="rgba(0,216,255,0.6)"
 animationDuration={0.2}
 pauseBetweenAnimations={1}
-/>
+/> */}
       <PromotionalContent />
       <TrustSection/>
       <Services />
