@@ -11,12 +11,12 @@ import TestimonialCarousel from './TestimonialCarousel'
 import TrustSection from '../Components/TrustSection'
 import FAQ from '../Components/FAQ'
 import TrueFocus from '../Components/TrueFocus'
-import Popup from '../Components/Popup'
+// import Popup from '../Components/Popup'
 
 const Home = () => {
   return (
     <div>
-      <Popup/>
+      {/* <Popup/> */}
       <Carousel />
       {/* <TrueFocus
 sentence="Payment After Service"
