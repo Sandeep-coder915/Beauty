@@ -13,9 +13,9 @@ import FAQ from '../Components/FAQ'
 import TrueFocus from '../Components/TrueFocus'
 // import Popup from '../Components/Popup'
 
-const Home = () => {
+const Home = ({darkMode}) => {
   return (
-    <div>
+    <div  >
       {/* <Popup/> */}
       <Carousel />
       {/* <TrueFocus
@@ -26,7 +26,7 @@ borderColor="rgba(0,216,255,0.6)"
 animationDuration={0.2}
 pauseBetweenAnimations={1}
 /> */}
-      <PromotionalContent />
+      <PromotionalContent className={darkMode} />
       <TrustSection/>
       <Services />
       <WhyChooseUs/>

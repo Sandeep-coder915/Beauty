@@ -1,7 +1,7 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
 
-const ContactForm = () => {
+const ContactForm = ({darkMode}) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,9 +30,9 @@ const ContactForm = () => {
   };
 
   return (
-    <div className={`flex items-center justify-center mt-2 bg-gray-100 px-4 darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"`}>
-      <div className="max-w-lg w-full bg-white p-8 shadow-xl rounded-lg">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Contact Us</h2>
+    <div className={`flex items-center justify-center mt-2 bg-transparent  px-4 darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"`}>
+      <div className="max-w-lg w-full  dark:bg-white  p-8 shadow-xl rounded-lg">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6 ">Contact Us</h2>
 
         {/* Status Message */}
         {statusMessage && <p className="text-center text-green-500 font-semibold">{statusMessage}</p>}
@@ -82,10 +82,10 @@ const ContactForm = () => {
             required
           ></textarea>
 
-     
+
           <button
             type="submit"
-            className="w-full  bg-pink-500 text-white py-3 rounded-lg hover:bg-pink-600 transition font-semibold"
+            className="w-full  bg-gray-900 text-white py-3 rounded-lg hover:bg-green-500 transition font-semibold"
             disabled={loading}
           >
             {loading ? "Sending..." : "Send Message"}

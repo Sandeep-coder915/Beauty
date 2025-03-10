@@ -55,7 +55,7 @@ const WhyChooseUs = ({ darkMode }) => {
       </div>
     </section>
       </motion.div></>
-  
+
   );
 };
 

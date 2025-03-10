@@ -59,7 +59,7 @@ const beauticians = [
   // },
 ];
 
-const BeauticiansList =({ darkMode }) => {
+const BeauticiansList =({darkMode}) => {
   return (
     <motion.div
     className="bg-white shadow-lg rounded-lg p-4"
@@ -69,7 +69,7 @@ const BeauticiansList =({ darkMode }) => {
     viewport={{ once: true, amount: 0.2 }} // Ensures animation triggers when 20% of the element is visible
   >
 
-    <div className={`container mx-auto py-10 bg-transparent  px-6 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100  text-pink-400'} `}>
+    <div className={`container mx-auto py-10 bg-transparent  px-6${darkMode ? 'bg-gray-100 text-white' : 'bg-gray-900  text-black'} `}>
       <h2 className="text-3xl font-bold text-center mb-6">🔒 Secure & Verified Beauticians</h2>
       <p className="text-center  mb-4">
         Our professionals are ID-verified, trained, and certified to provide the best beauty services at your home.
@@ -113,9 +113,10 @@ const BeauticiansList =({ darkMode }) => {
               </ul>
             </div>
 
-            <button className="mt-4 bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition">
+            <button className="mt-4  bg-gray-900 text-white py-2 px-4 rounded-lg hover:bg-gray-500 hover:text-white transition">
               Book Now
             </button>
+
           </div>
         ))}
       </div>

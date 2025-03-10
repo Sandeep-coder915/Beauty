@@ -57,12 +57,12 @@ const serviceCategories = [
 const Services = ({ darkMode }) => {
   return (
     <div className="container mx-auto py-10 px-6">
-      <h2 className="text-3xl font-bold text-center mb-10 text-pink-600">✨ Our Beauty Services ✨</h2>
+      <h2 className={`text-3xl font-bold text-center mb-10    ${darkMode ? "text-white" : ""}`}>✨ Our Beauty Services ✨</h2>
 
       {serviceCategories.map((category, index) => (
         <div key={index} className="mb-12">
           {/* Fix: Apply dark mode class here */}
-          <h3 className={`text-2xl font-semibold mb-5 border-b-2 border-pink-400 pb-2
+          <h3 className={`text-2xl text-center font-semibold mb-5 border-b-2 border-pink-400 pb-2
             ${darkMode ? "text-white" : ""}`}>
             {category.title}
           </h3>
