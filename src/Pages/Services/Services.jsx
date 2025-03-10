@@ -48,7 +48,7 @@ const Services = ({ darkMode }) => {
         <div key={index} className="mb-12">
           {/* Fix: Apply dark mode class here */}
           <h3 className={`text-2xl font-semibold mb-5 border-b-2 border-pink-400 pb-2
-            ${darkMode ? "text-white" : "text-gray-800"}`}>
+            ${darkMode ? "text-white" : ""}`}>
             {category.title}
           </h3>
 
