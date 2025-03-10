@@ -4,24 +4,27 @@ import emailjs from "emailjs-com";
 // Initialize loading state
 
 const servicesList = [
-
-
-
   { name: "Gold Facial", price: 2000 },
   { name: "Diamond Facial", price: 1499 },
   { name: "Bridal Facial", price: 1500 },
+  { name: "Party Makeup", price: 1500 },
   { name: "Fruit Facial", price: 799 },
+  { name: "Aloevera Facial", price: 699 },
+  { name: "D-Tan Facial", price: 1500 },
+  { name: "Lotus Facial", price: 1500 },
+  { name: "Wine Facial", price: 899 },
   { name: "Bleach, Facial, Full Leg Wax, Arm Wax, Threading", price: 1800 },
-  { name: "Any Hairstyle",  price: 600 },
-  { name: "Rebonding (Normal Length)", price:4500 },
+  { name: "Any Hairstyle", price: 600 },
+  { name: "Trimming + Headwash", price: 699 },
+  { name: "Hair Wash With Mask", price: 899 },
+  { name: "Rebonding (Normal Length)", price: 4500 },
   { name: "Rebonding + Keratin + Highlights", price: 5200 },
-  { name: "KeratinSmooth", price: 4500 },
-  { name: "Full Body Wax",   price: 3000 },
-  { name: "Bikini Wax",   price: 699 },
-  { name: "Body Polishing",  price: 2000 },
-  { name: "Manicure & Pedicure",   price: 1200 },
-  { name: "Nail Cut & File + Foot Massage",   price: 500 },
-
+  { name: "KeraSmooth", price: 4500 },
+  { name: "Full Body Wax", price: 3000 },
+  { name: "Bikini Wax", price: 699 },
+  { name: "Body Polishing", price: 2000 },
+  { name: "Manicure & Pedicure", price: 1200 },
+  { name: "Nail Cut & File + Foot Massage", price: 500 },
 ];
 
 
@@ -135,7 +138,7 @@ const Booking = () => {
             <input name="pincode" value="143001" className="w-full px-4 py-2 border rounded-lg text-black" readOnly />
           </div>
 
-          <div className="text-xl font-semibold mb-2 text-gray-800  ">Select Services:</div>
+          <div className="text-xl font-semibold mb-2 text-gray-800  ">Select Services You Want:</div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {servicesList.map((service) => (
               <label
