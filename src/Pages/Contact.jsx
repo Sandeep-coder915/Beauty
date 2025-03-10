@@ -82,7 +82,7 @@ const ContactForm = () => {
             required
           ></textarea>
 
-          {/* Submit Button */}
+     
           <button
             type="submit"
             className="w-full  bg-pink-500 text-white py-3 rounded-lg hover:bg-pink-600 transition font-semibold"
