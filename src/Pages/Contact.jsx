@@ -1,99 +1,111 @@
-import { useState } from "react";
-import emailjs from "emailjs-com";
+import React, { useState, useRef } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import emailjs from 'emailjs-com';
 
-const ContactForm = ({darkMode}) => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
+const ContactForm= () => {
+  const form = useRef();
 
-  const [loading, setLoading] = useState(false);
-  const [statusMessage, setStatusMessage] = useState("");
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [reason, setReason] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleClear = (e) => {
+    e.preventDefault();
+    setName('');
+    setPhone('');
+    setEmail('');
+    setReason('');
+    setMessage('');
   };
 
-  const handleSubmit = async (e) => {
+  const handleSendMessage = (e) => {
     e.preventDefault();
-    setLoading(true);
+    if (!name || !phone || !email || !reason || !message) {
+      toast.error('Please fill in all fields before submitting!');
+      return;
+    }
 
-    emailjs.send("service_2qgc2lp","template_peo6c8o", formData, "77GhrP483V-tWB0LE")
+    emailjs.sendForm('service_2qgc2lp', 'template_peo6c8o', form.current, '77GhrP483V-tWB0LE')
       .then(() => {
-        setStatusMessage("Message sent successfully!");
-        setFormData({ name: "", email: "", phone: "", message: "" });
-      })
-      .catch(() => setStatusMessage("Failed to send message. Try again."))
-      .finally(() => setLoading(false));
+        toast.success('Message sent successfully!');
+        handleClear(e);
+      }, (error) => {
+        toast.error(`Failed to send message: ${error.text}`);
+      });
   };
 
   return (
-    <div className={`flex items-center justify-center mt-2 bg-transparent  px-4 darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"`}>
-      <div className="max-w-lg w-full  dark:bg-white  p-8 shadow-xl rounded-lg">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6 ">Contact Us</h2>
+    <div className="flex flex-col items-center justify-center p-6  ">
+      <ToastContainer />
+      <h1 className="text-3xl font-bold">Contact Us 💖</h1>
+      <div className='flex flex-col items-center text-justify p-6 '>     <h2>Get in Touch with Beauty at Home – Your Comfort, Our Care!</h2>
 
-        {/* Status Message */}
-        {statusMessage && <p className="text-center text-green-500 font-semibold">{statusMessage}</p>}
+<p>📍 Location: Currently serving Amritsar, Punjab</p>
+<p>📞 Phone: 8360161602</p>
+<p>⏳ Response Time: Our team will get back to you within 24-48 hours.</p>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-
-          {/* Name */}
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full px-4  text-black py-2 border rounded-lg focus:ring-2 focus:ring-pink-400"
-            required
-          />
-
-          {/* Email */}
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full  text-black px-4 py-2 border rounded-lg focus:ring-2 focus:ring-pink-400"
-            required
-          />
-
-          {/* Phone */}
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Your Phone Number"
-            value={formData.phone}
-            onChange={handleChange}
-            className="w-full px-4  text-black py-2 border rounded-lg focus:ring-2 focus:ring-pink-400"
-            required
-          />
-
-          {/* Message */}
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            value={formData.message}
-            onChange={handleChange}
-            className="w-full px-4  text-black py-2 border rounded-lg focus:ring-2 focus:ring-pink-400 h-32 resize-none"
-            required
-          ></textarea>
+<p>Simply fill out the contact form below, and we’ll reach out as soon as possible. Your beauty, our priority! ✨💆‍♀️💅</p></div>
 
 
-          <button
-            type="submit"
-            className="w-full  bg-gray-900 text-white py-3 rounded-lg hover:bg-green-500 transition font-semibold"
-            disabled={loading}
-          >
-            {loading ? "Sending..." : "Send Message"}
-          </button>
-        </form>
-      </div>
+      <form ref={form} onSubmit={handleSendMessage} className="w-full max-w-lg    p-6 rounded-lg shadow-lg">
+        <input
+          onChange={(e) => setName(e.target.value)}
+          value={name}
+          name="user_name"
+          placeholder="Name"
+          className="w-full p-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <input
+          onChange={(e) => setPhone(e.target.value)}
+          value={phone}
+          name="user_phone"
+          placeholder="Phone Number"
+          type="tel"
+          className="w-full p-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <input
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+          name="user_email"
+          placeholder="Email"
+          type="email"
+          className="w-full p-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <select
+          onChange={(e) => setReason(e.target.value)}
+          value={reason}
+          name="user_reason"
+          className="w-full text-green-50 p-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          <option value="">Select Reason for Contact</option>
+          <option value="Product Inquiry">Product Inquiry</option>
+          <option value="Order Issue">Order Issue</option>
+          <option value="Feedback">Feedback</option>
+          <option value="General Question">General Question</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <textarea
+          onChange={(e) => setMessage(e.target.value)}
+          value={message}
+          name="user_message"
+          placeholder="Message for Us"
+          className="w-full p-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <div className="flex justify-between">
+          <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">SEND MESSAGE</button>
+          <button onClick={handleClear} className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">CLEAR MESSAGE</button>
+        </div>
+      </form>
     </div>
   );
 };
+
+
 
 export default ContactForm;
