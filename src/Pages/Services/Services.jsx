@@ -9,15 +9,15 @@ const serviceCategories = [
       { name: "Gold Facial", image: "https://www.merakispa.in/cdn/shop/files/gold-facial-cost-procedure-how-to-do.jpg?v=1711968594", description: "Premium gold facial for glowing skin", price: "₹2000" },
       { name: "Diamond Facial", image: "https://cdn2.stylecraze.com/wp-content/uploads/2014/10/10-Best-Benefits-Of-Diamond-Facials.jpg.avif", description: "Luxury diamond facial treatment", price: "₹1499" },
       { name: "Bridal Facial", image: "https://cdn0.weddingwire.in/article/5275/3_2/1280/jpg/65725-tips-for-glowing-skin-dhanika-choksi-photography-lead-image.webp", description: "Special bridal facial package", price: "₹1500" },
-      { name: "Party Makeup", image: "https://cdn0.weddingwire.in/article/5275/3_2/1280/jpg/65725-tips-for-glowing-skin-dhanika-choksi-photography-lead-image.webp", description: "Special bridal facial package", price: "₹1500" },
+      { name: "Party Makeup", image: "https://makeupbynidhisharma.com/wp-content/uploads/2022/08/party-11-768x960.jpg", description: "Special bridal facial package", price: "₹1500" },
       { name: "Fruit Facial", image: "https://cdn-ilcgphd.nitrocdn.com/qNViGcRtwnumSQfySEQiYhHcvdqvufzh/assets/images/optimized/rev-cd7a751/www.bodycraft.co.in/wp-content/uploads/healthy-beautiful-radiant-skin-woman-without-makeup-portrait-girl-smiling-against-wall-fruits.jpg", description: "Natural fruit facial for fresh skin", price: "₹799" },
-      { name: "Aloevera Facial", image: "https://cdn-ilcgphd.nitrocdn.com/qNViGcRtwnumSQfySEQiYhHcvdqvufzh/assets/images/optimized/rev-cd7a751/www.bodycraft.co.in/wp-content/uploads/healthy-beautiful-radiant-skin-woman-without-makeup-portrait-girl-smiling-against-wall-fruits.jpg", description: "ool, Calm & Hydrated – Let Aloe Work Its Wonders!", price: "₹699" },
+      { name: "Aloevera Facial", image: "https://img.bebeautiful.in/www-bebeautiful-in/Try-out-this-aloe-vera-facial-at-home-for-healthy-glowing-skin_1.jpg?w=300", description: "ool, Calm & Hydrated – Let Aloe Work Its Wonders!", price: "₹699" },
 
-      { name: "D-Tan Facial", image: "https://cdn-ilcgphd.nitrocdn.com/qNViGcRtwnumSQfySEQiYhHcvdqvufzh/assets/images/optimized/rev-cd7a751/www.bodycraft.co.in/wp-content/uploads/healthy-beautiful-radiant-skin-woman-without-makeup-portrait-girl-smiling-against-wall-fruits.jpg", description: "Sun Tan? Not a Problem – Restore Your True Skin Tone!", price: "₹1500" },
-      { name: "Lotous Facial", image: "https://cdn-ilcgphd.nitrocdn.com/qNViGcRtwnumSQfySEQiYhHcvdqvufzh/assets/images/optimized/rev-cd7a751/www.bodycraft.co.in/wp-content/uploads/healthy-beautiful-radiant-skin-woman-without-makeup-portrait-girl-smiling-against-wall-fruits.jpg", description: "Lotus Facial – The Ultimate Skin Pampering Experience!", price: "₹1500" },
+      { name: "D-Tan  ", image: "https://anayrahomesalon.com/wp-content/uploads/2024/01/d-tan41646649742.jpg", description: "Sun Tan? Not a Problem – Restore Your True Skin Tone!", price: "₹1500" },
+      { name: "Lotous Facial", image: "https://greendayspa.in/wp-content/uploads/2017/11/Lotus-24Karat-GOLDSHEEN-Facials-Parlour-in-Chennai.jpg", description: "Lotus Facial – The Ultimate Skin Pampering Experience!", price: "₹1500" },
 
 
-      { name: "Wine Facial", image: "https://cdn-ilcgphd.nitrocdn.com/qNViGcRtwnumSQfySEQiYhHcvdqvufzh/assets/images/optimized/rev-cd7a751/www.bodycraft.co.in/wp-content/uploads/healthy-beautiful-radiant-skin-woman-without-makeup-portrait-girl-smiling-against-wall-fruits.jpg", description: "Uncork the Secret to Youthful, Glowing Skin!", price: "899" },
+      { name: "Wine Facial", image: "https://www.stackumbrella.com/wp-content/uploads/2021/01/imgpsh_fullsize_anim-57-696x409.jpg", description: "Uncork the Secret to Youthful, Glowing Skin!", price: "899" },
       { name: "Bleach, Facial, Full Leg Wax, Arm Wax, Threading", image: "https://www.hellosalon.in/uploads/services/facial-27-2-24.jpg", description: "Complete skincare combo", price: "₹1800" },
 
 
@@ -28,7 +28,7 @@ const serviceCategories = [
     title: "Hair Treatments & Styling",
     services: [
       { name: "Any Hairstyle Starts From ", image: "https://cdn.shopify.com/s/files/1/1412/4580/files/1_c81497c5-4134-4ba2-a943-9eb45f90e4ea_480x480.png?v=1655212092", description: "Customized stylish hairdos start with RS.600", price: "₹600" },
-      { name: " Trimming + Headwash ", image: "https://cdn.shopify.com/s/files/1/1412/4580/files/1_c81497c5-4134-4ba2-a943-9eb45f90e4ea_480x480.png?v=1655212092", description: "Customized stylish hairdos start with RS.600", price: "₹699" },
+      { name: " Trimming + Headwash ", image: "https://media1.popsugar-assets.com/files/thumbor/Aw6lPPE9LbKm6275cM3LIiKIlmw=/fit-in/792x528/top/filters:format_auto():upscale()/2022/05/18/784/n/1922153/tmp_JqSZEq_29e254eb50e8046b_GettyImages-848290574.jpg", description: "Customized stylish hairdos start with RS.600", price: "₹699" },
       { name: " Hair wash With Mask  ", image: "https://cdn.shopify.com/s/files/1/1412/4580/files/1_c81497c5-4134-4ba2-a943-9eb45f90e4ea_480x480.png?v=1655212092", description: "Customized stylish hairdos start with RS.600", price: "₹899" },
 
       { name: "Rebonding (Normal Length)", image: "https://cdn.shopify.com/s/files/1/1412/4580/files/1_c81497c5-4134-4ba2-a943-9eb45f90e4ea_480x480.png?v=1655212092", description: "Straight and silky hair treatment", price: "₹4500" },

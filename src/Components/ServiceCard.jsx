@@ -41,7 +41,7 @@ const ServiceCard = ({ service }) => {
         <img
           src={image || "https://via.placeholder.com/150"}
           alt={name || "Service Image"}
-          className="w-full h-52 object-cover rounded-lg"
+          className="w-full h-60 object-cover rounded-lg lg:h-70"
         />
       </Link>
 
