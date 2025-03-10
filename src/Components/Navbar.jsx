@@ -165,14 +165,14 @@ const Navbar = ({ darkMode, setDarkMode }) => {
     <>
       <ToplineHeader />
       <nav
-        className={`fixed top-8 w-full z-50 px-6 py-4 shadow-md transition-all duration-300 ${
+        className={`sticky  top-8 w-full z-50 px-6 py-4 shadow-md transition-all duration-300 ${
           darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
         }`}
       >
         <div className="flex justify-between items-center max-w-7xl mx-auto">
           {/* Logo */}
           <Link to="/" className="text-xl font-bold">
-            <img src="/assets/TheHomes.svg" alt="" />
+            <img src="/assets/TheHomes.svg" alt=""  />
           </Link>
 
           {/* Centered Combo Offers (Only on small & tablet screens) */}
@@ -239,7 +239,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
       </div>
 
       {/* Spacer to prevent content from being hidden under navbar */}
-      <div className="h-22"></div>
+      {/* <div className="h-22"></div> */}
     </>
   );
 };
