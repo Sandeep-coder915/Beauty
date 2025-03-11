@@ -6,7 +6,7 @@ const serviceCategories = [
   {
     title: "Facial & Skincare",
     services: [
-      { name: "Gold Facial", image: "https://www.merakispa.in/cdn/shop/files/gold-facial-cost-procedure-how-to-do.jpg?v=1711968594", description: "Premium gold facial for glowing skin", price: "₹2000" },
+      { name: "Gold Facial", image: "https://www.merakispa.in/cdn/shop/files/gold-facial-cost-procedure-how-to-do.jpg?v=1711968594", description: "Premium gold facial for glowing skin", price: "₹2000"  ,},
       { name: "Diamond Facial", image: "https://cdn2.stylecraze.com/wp-content/uploads/2014/10/10-Best-Benefits-Of-Diamond-Facials.jpg.avif", description: "Luxury diamond facial treatment", price: "₹1499" },
       { name: "Bridal Facial", image: "https://cdn0.weddingwire.in/article/5275/3_2/1280/jpg/65725-tips-for-glowing-skin-dhanika-choksi-photography-lead-image.webp", description: "Special bridal facial package", price: "₹1500" },
       { name: "Party Makeup", image: "https://makeupbynidhisharma.com/wp-content/uploads/2022/08/party-11-768x960.jpg", description: "Special bridal facial package", price: "₹1500" },
@@ -79,39 +79,5 @@ const Services = ({ darkMode }) => {
 };
 
 
-
-// import React from "react";
-// import ServiceCard from "../../Components/ServiceCard";
-
-
-// const Services =({ darkMode }) => {
-//   return (
-// <div className="container mx-auto py-9 px-5">
-//   <h2 className="text-3xl font-bold  text-center mb-10 text-pink-900">
-//     ✨ Our Beauty Services ✨
-//   </h2>
-
-//   {serviceCategories.map((category, index) => (
-//     <div key={index} className="mb-12">
-// <h3
-//   className="text-2xl font-semibold text-center mb-5 border-b-2 border-pink-400 pb-2 text-black "
-// >
-//   {category.title}
-// </h3>
-
-
-
-//       {/* Responsive Grid Layout */}
-//       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-//         {category.services.map((service, idx) => (
-//           <ServiceCard key={idx} service={service} />
-//         ))}
-//       </div>
-//     </div>
-//   ))}
-// </div>
-
-//   );
-// }
 
 export default Services;

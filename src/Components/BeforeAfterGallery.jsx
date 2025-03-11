@@ -5,6 +5,10 @@ import { Upload, ImagePlus, XCircle } from "lucide-react";
 const BeforeAfterGallery = () => {
   const [images, setImages] = useState([]);
 
+  const applyDarkSpotsEffect = (imageSrc) => {
+    return `${imageSrc}#darkSpots`; // Placeholder effect simulation
+  };
+
   const handleImageUpload = (e, index, type) => {
     const file = e.target.files[0];
     if (file) {
@@ -13,7 +17,7 @@ const BeforeAfterGallery = () => {
         setImages((prev) => {
           const updated = [...prev];
           if (!updated[index]) updated[index] = { before: "", after: "" };
-          updated[index][type] = reader.result;
+          updated[index][type] = type === "before" ? applyDarkSpotsEffect(reader.result) : reader.result;
           return updated;
         });
       };
@@ -32,13 +36,11 @@ const BeforeAfterGallery = () => {
   return (
     <div className="container mx-auto py-10 px-6 border border-orange-100 shadow-lg rounded-lg border-b-amber-50">
       <h2 className="text-3xl font-bold text-center mb-6">📸 Before & After Gallery</h2>
-      <p className="text-center   mb-4">
-        See the amazing transformations from our beauty services!
-      </p>
+      <p className="text-center mb-4">See the amazing transformations from our beauty services!</p>
 
       {images.length === 0 && (
         <div className="text-center">
-          <p className=" ">No images uploaded yet.</p>
+          <p>No images uploaded yet.</p>
         </div>
       )}
 

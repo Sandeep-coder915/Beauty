@@ -37,8 +37,8 @@ const ServiceCard = ({ service }) => {
 
   return (
     <div className="bg-white p-2 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ">
-      <Link to={`/booking-form?service=${encodeURIComponent(name)}`}>
-        <img
+     <Link to={`/booking-form?service=${encodeURIComponent(name)}`}>
+     <img
           src={image || "https://via.placeholder.com/150"}
           alt={name || "Service Image"}
           className="w-full h-60 object-cover rounded-lg lg:h-70"

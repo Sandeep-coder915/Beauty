@@ -7,7 +7,7 @@ import Home from "./Pages/Home";
 import Services from './Pages/Services/Services'
 import Booking from "./Pages/Booking/Booking";
 import ContactForm from "./Pages/Contact";
-import FacialTreatmentPage from "./Pages/Categories/FacialTreatmentPage";
+import FacialTreatmentPage from "./Pages/Description/FacialTreatmentPage";
 import AboutUs from "./Components/AboutUs";
 import ComboOffers from "./Pages/Services/ComboOffers";
 import Invoice from "./Pages/Booking/Invoice";
@@ -15,6 +15,7 @@ import FAQ from "./Components/FAQ";
 import TermsAndServices from "./Pages/Policies/TermsAndServices";
 import PrivacyPolicy from "./Pages/Policies/PrivacyPolicy";
 import Reviews from "./Pages/Reviews";
+import GoldFacial from "./Pages/Description/GoldFacial";
 
 // 404 Page Component
 const NotFound =({ darkMode }) => {
@@ -56,7 +57,7 @@ const NotFound =({ darkMode }) => {
           ℹ️ About Us
         </Link>
         <Link
-          to="/about-us"
+          to="/booking-form"
           className="px-5 py-3 bg-black text-white rounded-lg shadow-lg hover:bg-purple-700 transition"
         >
        Book An Appointment   ➡️
@@ -67,7 +68,7 @@ const NotFound =({ darkMode }) => {
   );
 };
 
- 
+
 
 const AppRoutes = () => {
   return (
@@ -80,13 +81,19 @@ const AppRoutes = () => {
       <Route path="/facial-treatment" element={<FacialTreatmentPage />} />
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/invoice" element={<Invoice />} />
-      
+
       {/* Catch-all Route for 404 Page */}
       <Route path="*" element={<NotFound />} />
       <Route path="/FAQ" element={<FAQ/>} />
       <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
       <Route path="/terms-and-services" element={<TermsAndServices/>} />
       <Route path="/reviews" element={<Reviews/>} />
+
+
+    {/* Pages  */}
+    <Route path='/gold-facial' element={<GoldFacial/>} />
+
+
     </Routes>
   );
 };

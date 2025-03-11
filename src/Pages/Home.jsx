@@ -33,7 +33,7 @@ pauseBetweenAnimations={1}
       <FAQ/>
       <BeauticiansList/>
 
-      <BeforeAfterGallery/>
+      {/* <BeforeAfterGallery/> */}
 {/* <Reviews/> */}
 <TestimonialCarousel/>
       {/* <ServiceCard /> */}
