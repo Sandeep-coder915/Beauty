@@ -165,7 +165,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
     <>
       <ToplineHeader />
       <nav
-        className={`sticky  top-8 w-full z-50 px-6 py-4 shadow-md transition-all duration-300 ${
+        className={`sticky top-8 w-full z-50 px-3 py-1 shadow-md transition-all duration-300 ${
           darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
         }`}
       >
@@ -179,9 +179,9 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           <div className="lg:hidden absolute left-1/2 transform -translate-x-1/2">
             <Link
               to="/ComboOffers"
-              className="text-[15px] font-semibold hover:text-pink-500 flex items-center gap-2"
+              className="text-[14px] font-semibold hover:text-pink-500 flex items-center gap-2"
             >
-              <Gift size={20} /> Combo Offers
+              <Gift size={18} /> Combo Offers
             </Link>
           </div>
 
