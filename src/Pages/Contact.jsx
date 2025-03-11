@@ -97,7 +97,7 @@ const ContactForm= () => {
           className="w-full p-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
 
-        <div className="flex justify-between">
+        <div className="flex justify-between gap-5">
           <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">SEND MESSAGE</button>
           <button onClick={handleClear} className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700">CLEAR MESSAGE</button>
         </div>
