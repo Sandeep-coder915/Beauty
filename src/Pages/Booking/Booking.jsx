@@ -31,7 +31,7 @@ const servicesList = [
 const Booking = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-
+  const [error, setError] = useState("");
 
   const [formData, setFormData] = useState({
     name: "",
@@ -61,6 +61,15 @@ const Booking = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if (name === "address") {
+      // Address validation: Must contain "Amritsar"
+      if (!value.toLowerCase().includes("amritsar")) {
+        setError("Address must be within Amritsar.");
+        return;
+      } else {
+        setError(""); // Clear error if valid
+      }
+    }
     setFormData({ ...formData, [name]: value });
   };
 
@@ -70,6 +79,12 @@ const Booking = () => {
   const handleCOD = async (e) => {
     e.preventDefault();
     setLoading(true);
+    if (!formData.address.toLowerCase().includes("amritsar")) {
+      setError("Please enter a valid address in Amritsar.");
+      setLoading(false);
+      return;
+    }
+
     try {
       const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
 
@@ -133,6 +148,7 @@ const Booking = () => {
           <input name="email" type="email" placeholder="Email Address (optional)" onChange={handleChange} className="w-full px-4 py-2 border text-black rounded-lg" required />
           <input name="houseNumber" placeholder="House Number" onChange={handleChange} className="w-full px-4 py-2 border rounded-lg text-black" required />
           <input name="address" placeholder="Street Address (Amritsar only)" onChange={handleChange} className="w-full px-4 py-2 border rounded-lg text-black" required />
+          {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
           <div className="grid grid-cols-2 gap-4">
             <input name="landmark" placeholder="Landmark" onChange={handleChange} className="w-full text-black px-4 py-2 border rounded-lg" required />
             <input name="pincode" value="143001" className="w-full px-4 py-2 border rounded-lg text-black" readOnly />
