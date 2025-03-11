@@ -62,14 +62,14 @@ const beauticians = [
 const BeauticiansList =({darkMode}) => {
   return (
     <motion.div
-    className="bg-white shadow-lg rounded-lg p-4"
+    className="bg-transparent shadow-lg rounded-lg p-4"
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6 }}
     viewport={{ once: true, amount: 0.2 }} // Ensures animation triggers when 20% of the element is visible
   >
 
-    <div className={`container mx-auto py-10 bg-transparent  px-6${darkMode ? 'bg-gray-100 text-white' : 'bg-gray-900  text-black'} `}>
+    <div className="container mx-auto py-10 bg-transparent    px-6 " >
       <h2 className="text-3xl font-bold text-center mb-6">🔒 Secure & Verified Beauticians</h2>
       <p className="text-center  mb-4">
         Our professionals are ID-verified, trained, and certified to provide the best beauty services at your home.
@@ -77,13 +77,13 @@ const BeauticiansList =({darkMode}) => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {beauticians.map((beautician) => (
-          <div key={beautician.id} className="bg-white shadow-lg rounded-lg p-6 text-center">
+          <div key={beautician.id} className="bg-gray-50 shadow-lg rounded-lg p-6 text-center">
             <img
               src={beautician.image}
               alt={beautician.name}
-              className="w-24 h-24 mx-auto rounded-full object-cover border-2 border-pink-500"
+              className="w-24 h-24 mx-auto rounded-full object-cover border-2  border-pink-500"
             />
-            <h3 className="text-xl font-semibold mt-3 border-red-400">{beautician.name}</h3>
+            <h3 className="text-xl font-semibold mt-3 dark:text-black border-red-400">{beautician.name}</h3>
             <p className="text-gray-500">{beautician.experience}</p>
 
             {/* Verified Badge */}

@@ -41,7 +41,7 @@ const FAQ = () => {
     <div className="max-w-3xl mx-auto py-10 px-4">
       <div className="flex items-center justify-center mb-6">
         <HelpCircle className="text-blue-600 w-10 h-10 animate-pulse" />
-        <h2 className="text-3xl font-bold text-gray-800 ml-2">Frequently Asked Questions</h2>
+        <h2 className="text-3xl font-bold  ml-2">Frequently Asked Questions</h2>
       </div>
 
       <div className="space-y-4">
