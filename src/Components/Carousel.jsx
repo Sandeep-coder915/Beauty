@@ -3,13 +3,10 @@ import PropTypes from "prop-types";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 
-// Import images for Desktop & Mobile
 
-
-// Image Data
 const slides = [
   {
-    desktop: '/assets/banner/1.jpg',
+    desktop: '/assets/banner/Enjoy the 150 off.jpg',
     mobile: '/assets/banner/150.jpg',
     title: " ",
     description: " ",
@@ -44,16 +41,16 @@ const slides = [
     buttonText: "View Packages",
     buttonLink: "/booking-form",
   },
-  // {
-  //   desktop: 'https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  {
+    desktop: '/assets/banner/1.jpg',
 
-  //   mobile: "https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    // mobile: "https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 
-  //   title: "Luxury Spa Experience",
-  //   description: "Relax & rejuvenate with our premium spa treatments.",
-  //   buttonText: "View Packages",
-  //   buttonLink: "/booking-form",
-  // },
+    title: "Luxury Spa Experience",
+    description: "Relax & rejuvenate with our premium spa treatments.",
+    buttonText: "View Packages",
+    buttonLink: "/booking-form",
+  },
 ];
 
 const useWindowWidth = () => {
@@ -102,9 +99,8 @@ const Carousel = () => {
           animate={{ opacity: index === currentIndex ? 1 : 0, x: 0 }}
           exit={{ opacity: 0, x: -100 }}
           transition={{ duration: 0.8 }}
-          className={`absolute inset-0 transition-opacity ${
-            index === currentIndex ? "opacity-100" : "opacity-0"
-          }`}
+          className={`absolute inset-0 transition-opacity ${index === currentIndex ? "opacity-100" : "opacity-0"
+            }`}
         >
           <img
             src={isMobile ? slide.mobile : slide.desktop}
@@ -113,7 +109,7 @@ const Carousel = () => {
             loading="lazy"
 
           />
-            {/* //cover */}
+          {/* //cover */}
           <div className="absolute inset-0  flex flex-col items-center justify-center text-center text-white p-6">
             <h2 className="text-3xl md:text-5xl font-bold">{slide.title}</h2>
             <p className="text-md md:text-lg mt-2">{slide.description}</p>
@@ -148,9 +144,8 @@ const Carousel = () => {
         {slides.map((_, index) => (
           <div
             key={index}
-            className={`w-3 h-3 mx-1 rounded-full transition ${
-              index === currentIndex ? "bg-pink-500" : "bg-gray-400"
-            }`}
+            className={`w-3 h-3 mx-1 rounded-full transition ${index === currentIndex ? "bg-pink-500" : "bg-gray-400"
+              }`}
             onClick={() => setCurrentIndex(index)}
           />
         ))}
