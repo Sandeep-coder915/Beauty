@@ -15,17 +15,20 @@ const servicesList = [
   { name: "Lotus Facial", price: 1600 },
   { name: "Wine Facial", price: 999 },
   { name: "Bleach, Facial, Full Leg Wax, Arm Wax, Threading", price: 1899 },
-  { name: "Any Hairstyle", price: 799 },
+  { name: "Any Hairstyle", price: 699 },
   { name: "Trimming + Headwash", price: 799 },
   { name: "Hair Wash With Mask", price: 999 },
   { name: "Rebonding (Normal Length)", price: 4600 },
+  { name: "Manicure + Pedicure + Hair Spa", price: 1299},
   { name: "Rebonding + Keratin + Highlights", price: 5300 },
-  { name: "KeraSmooth", price: 4600 },
+  { name: "Global Highlights + Keratin (Normal Length)", price: 4599 },
+  { name: "KeraSmooth", price: 4599 },
   { name: "Full Body Wax", price: 3199 },
   { name: "Bikini Wax", price: 799 },
   { name: "Body Polishing", price: 2100 },
   { name: "Manicure & Pedicure", price: 1299 },
   { name: "Nail Cut & File + Foot Massage", price: 599 },
+  { name: "Mehndi + Threading + Cleanup", price: 699 },
 ];
 
 
