@@ -4,20 +4,21 @@ import PromotionalContent from '../Components/PromotionalContent'
 import Carousel from '../Components/Carousel'
 import Services from './Services/Services'
 import WhyChooseUs from '../Components/WhyChooseUs'
-import BeforeAfterGallery from '../Components/BeforeAfterGallery'
+// import BeforeAfterGallery from '../Components/BeforeAfterGallery'
 import BeauticiansList from '../Components/BeauticiansList'
-import Reviews from './Reviews'
+import Popup from '../Components/Popup'
+// import Reviews from './Reviews'
 import TestimonialCarousel from './TestimonialCarousel'
 import TrustSection from '../Components/TrustSection'
 import FAQ from '../Components/FAQ'
- 
+
 import ContactForm from './Contact'
 // import Popup from '../Components/Popup'
 
 const Home = ({darkMode}) => {
   return (
     <div  >
-      {/* <Popup/> */}
+<Popup/>
       <Carousel />
       {/* <TrueFocus
 sentence="Payment After Service"

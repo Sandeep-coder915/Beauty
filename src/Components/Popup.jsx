@@ -1,52 +1,66 @@
-import { Button, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
-import { useState } from 'react'
+import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Popup() {
-  let [isOpen, setIsOpen] = useState(true)
-
-  function open() {
-    setIsOpen(true)
-  }
+  let [isOpen, setIsOpen] = useState(true);
 
   function close() {
-    setIsOpen(false)
+    setIsOpen(false);
   }
 
   return (
     <>
-      {/* <Button
-        onClick={open}
-        className="rounded-md bg-black/20 py-2 px-4 text-sm font-medium text-white focus:outline-none data-[hover]:bg-black/30 data-[focus]:outline-1 data-[focus]:outline-white"
-      >
-        Open dialog
-      </Button> */}
+      <Dialog open={isOpen} as="div" className="relative z-10" onClose={close}>
+        {/* Background overlay with blur effect */}
+        <div className="fixed inset-0 bg-black/30 backdrop-blur-md" aria-hidden="true"></div>
 
-      <Dialog open={isOpen} as="div" className="relative z-10 focus:outline-none" onClose={close}>
-        <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-          <div className="flex min-h-full items-center justify-center p-4">
-            <DialogPanel
-              transition
-              className="w-full max-w-md rounded-xl bg-white/5 p-6 backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
+        {/* Popup Container */}
+        <div className="fixed inset-0 z-20 flex items-center justify-center p-4">
+          <DialogPanel className="w-full max-w-md rounded-xl bg-white p-6 shadow-lg relative">
+
+            {/* Close Button (Top Right) */}
+            <button
+              className="absolute top-3 right-3 text-gray-600 hover:text-gray-900"
+              onClick={close}
             >
-              <DialogTitle as="h3" className="text-base/7 font-medium text-white">
-                Payment successful
-              </DialogTitle>
-              <p className="mt-2 text-sm/6 text-white/50">
-                Your payment has been successfully submitted. We’ve sent you an email with all of the details of your
-                order.
-              </p>
-              <div className="mt-4">
-                <Button
-                  className="inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-gray-700"
-                  onClick={close}
-                >
-                  Got it, thanks!
-                </Button>
-              </div>
-            </DialogPanel>
-          </div>
+              &#10005;
+            </button>
+
+            {/* Discount Offer Title */}
+            <DialogTitle as="h3" className="text-lg font-bold text-gray-800 text-center">
+              Special Holi Offer!
+            </DialogTitle>
+
+            {/* Discount Image */}
+            <div className="mt-4 flex justify-center">
+              <img
+                src="/assets/banner/150.jpg"
+                alt="Holi Discount Offer"
+                className="w-48 h-48 object-cover rounded-md"
+              />
+            </div>
+
+            {/* Discount Code */}
+            <p className="mt-4 text-center text-gray-700 text-lg font-semibold">
+              Use Code: <span className="text-red-500">HOLISPECIAL150</span>
+            </p>
+            <p className="text-center text-gray-500 text-sm mt-2">
+              Get ₹150 off on your purchase. Hurry, limited time offer!
+            </p>
+
+            {/* Close Button */}
+            <div className="mt-6 flex justify-center">
+              <Link to='/booking-form'><button
+                className="px-4 py-2 bg-blue-600 text-white rounded-md shadow-md hover:bg-blue-700 transition"
+                onClick={close}
+              >
+                Claim Offer
+              </button></Link>
+            </div>
+          </DialogPanel>
         </div>
       </Dialog>
     </>
-  )
+  );
 }
