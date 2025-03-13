@@ -11,14 +11,12 @@ const Invoice = ({ darkmode }) => {
   const [hasPlayed, setHasPlayed] = useState(false);
 
   useEffect(() => {
-    // Trigger confetti animation
     confetti({
       particleCount: 150,
       spread: 80,
       origin: { y: 0.6 },
     });
 
-    // Play cheers sound only once
     if (!hasPlayed) {
       const audio = new Audio(cheersSound);
       audio.play().catch((err) => console.error("Audio playback failed:", err));
@@ -86,7 +84,7 @@ const Invoice = ({ darkmode }) => {
 
   return (
     <div
-      className={`flex items-center justify-center   p-6 ${
+      className={`flex items-center justify-center p-6 ${
         darkmode ? "bg-gray-100 text-gray-900" : "bg-gray-900 text-white"
       }`}
     >
@@ -125,6 +123,12 @@ const Invoice = ({ darkmode }) => {
           <p>🕒 <strong>Time:</strong> {bookingData.time || "N/A"}</p>
           <p>💰 <strong>Amount:</strong> ₹{bookingData.amount || "N/A"}</p>
           <p>💳 <strong>Payment Mode:</strong> {bookingData.paymentMode || "N/A"}</p>
+
+          {/* Display Coupon Code if Applied */}
+          {bookingData.appliedCoupon && bookingData.discountAmount > 0 && (
+  <p>🎟️ <strong>Coupon Applied:</strong> {bookingData.appliedCoupon} (-₹{bookingData.discountAmount})</p>
+)}
+
         </motion.div>
 
         {/* Print PDF Button */}

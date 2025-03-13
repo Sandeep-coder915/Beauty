@@ -30,9 +30,11 @@ const servicesList = [
 
 const Booking = () => {
   const navigate = useNavigate();
+  const [couponApplied, setCouponApplied] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
+  const [coupon, setCoupon] = useState("");
+  const [discount, setDiscount] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -45,10 +47,32 @@ const Booking = () => {
     date: "",
     time: "",
     paymentMode: "COD",
+    appliedCoupon: "",   // NEW: To store coupon code
+    discountAmount: 0,
   });
 
-  const totalAmount = formData.services.reduce((sum, service) => sum + service.price, 0);
+  const totalAmount =   formData.services.reduce((sum, service) => sum + service.price, 0) - formData.discountAmount;
 
+  const applyCoupon = () => {
+    if (coupon === "HOLISPECIAL150") {
+      setDiscount(150);
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        appliedCoupon: "HOLISPECIAL150",
+        discountAmount: 150,
+      }));
+      setCouponApplied(true);
+    } else {
+      setDiscount(0);
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        appliedCoupon: "", // Clear if invalid
+        discountAmount: 0,
+      }));
+      setCouponApplied(false);
+      alert("Invalid Coupon Code");
+    }
+  };
   const handleServiceSelection = (service) => {
     setFormData((prev) => {
       const isSelected = prev.services.find((s) => s.name === service.name);
@@ -74,7 +98,7 @@ const Booking = () => {
   };
 
   const googleSheetURL =
-    "https://script.google.com/macros/s/AKfycbwszHdLGMP-qS4f9u-g8jlT8XunhodzwjE9QNtXdTTi0mMvcivG4950CIZeMS7IrvDZ/exec";
+    "https://script.google.com/macros/s/AKfycbx7ANKqBk9rPjXBMSVg2CLuy2QAm23e3sMm7xZdSfZZTiQfwuO1-49wN2ls5EjT5q3E/exec";
 
   const handleCOD = async (e) => {
     e.preventDefault();
@@ -97,6 +121,8 @@ const Booking = () => {
         ...formData,
         services: selectedServices,
         amount: totalAmount,
+        appliedCoupon: formData.appliedCoupon || "No Coupon", // Default if no coupon
+        discountAmount: formData.discountAmount || 0, // Default if no discount
         timestamp,
       };
 
@@ -124,6 +150,8 @@ const Booking = () => {
           time: bookingData.time,
           paymentMode: bookingData.paymentMode,
           amount: bookingData.amount,
+          appliedCoupon: bookingData.appliedCoupon, // Include coupon in email
+          discountAmount: bookingData.discountAmount,
         },
         "77GhrP483V-tWB0LE"
       );
@@ -145,7 +173,7 @@ const Booking = () => {
         <form onSubmit={handleCOD} className="space-y-4">
           <input name="name" placeholder="Full Name" onChange={handleChange} className="w-full px-4 py-2 border rounded-lg text-black" required />
           <input name="phone" placeholder="Phone Number" onChange={handleChange} className="w-full px-4 py-2 border rounded-lg text-black" required />
-          <input name="email" type="email" placeholder="Email Address (optional)" onChange={handleChange} className="w-full px-4 py-2 border text-black rounded-lg" required />
+          <input name="email" type="email" placeholder="Email Address  " onChange={handleChange} className="w-full px-4 py-2 border text-black rounded-lg" required />
           <input name="houseNumber" placeholder="House Number" onChange={handleChange} className="w-full px-4 py-2 border rounded-lg text-black" required />
           <input name="address" placeholder="Street Address (Amritsar only)" onChange={handleChange} className="w-full px-4 py-2 border rounded-lg text-black" required />
           {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
@@ -181,12 +209,37 @@ const Booking = () => {
               </label>
             ))}
           </div>
+          <div className="flex flex-col items-center">
+  <input
+    type="text"
+    placeholder="Enter Coupon Code"
+    value={coupon}
+    onChange={(e) => setCoupon(e.target.value)}
+    className="w-full px-4 py-2 border rounded-lg text-black"
+  />
+  <button
+    type="button"
+    onClick={applyCoupon}
+    className="mt-2 px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-700"
+  >
+    Apply Coupon
+  </button>
 
+  {/* ✅ Show Cheer Up Icon on Successful Coupon Application */}
+  {couponApplied && (
+    <div className="mt-2 text-green-500 flex items-center">
+      <span className="text-2xl">🎉</span>
+      <span className="ml-2 font-semibold">Coupon Applied Successfully!</span>
+    </div>
+  )}
+</div>
 
+          {/* Display Total Amount */}
+          <div className="text-xl font-semibold text-gray-800 text-center mt-4">
+            Total Amount: <span className="text-green-500">₹{totalAmount}</span>
+          </div>
+{/* Apply Coupan Code here  */}
           <div className="bg-gradient-to-r from-gray-800 to-gray-900 p-6 rounded-xl shadow-lg text-center">
-  <div className="text-2xl font-extrabold text-white tracking-wide mb-4">
-    Total Amount: <span className="text-green-400">₹{totalAmount}</span>
-  </div>
 
   <div className="flex flex-col space-y-4">
     <div className="relative">
