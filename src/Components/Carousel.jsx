@@ -110,6 +110,8 @@ const Carousel = () => {
             src={isMobile ? slide.mobile : slide.desktop}
             alt={slide.title}
             className="w-full h-[600px] object-cover"
+            loading="lazy"
+
           />
             {/* //cover */}
           <div className="absolute inset-0  flex flex-col items-center justify-center text-center text-white p-6">
