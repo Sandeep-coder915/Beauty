@@ -45,9 +45,8 @@ const slides = [
     desktop: '/assets/banner/1.jpg',
     mobile: '/assets/banner/Untitled design.jpg',
     // mobile: "https://plus.unsplash.com/premium_photo-1701767501250-fda0c8f7907f?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-
-    title: "Luxury Spa Experience",
-    description: "Relax & rejuvenate with our premium spa treatments.",
+    title: " ",
+    description: "",
     buttonText: "View Packages",
     buttonLink: "/booking-form",
   },
