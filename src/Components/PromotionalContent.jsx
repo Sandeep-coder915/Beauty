@@ -35,11 +35,11 @@ const PromotionalContent = () => {
         </div>
         <div className="flex items-center space-x-3 hover:text-pink-400 transition">
           <Gift className="w-6 h-6 text-green-400" />
-          <span>Exclusive Discounts for Members</span>
+          <span>Special Holi Discount Offer </span>
         </div>
         <div className="flex items-center space-x-3 hover:text-pink-400 transition">
           <ShoppingCart className="w-6 h-6 text-blue-400" />
-          <span>Book an appointment and Get Extra 10% Off</span>
+          <span>Use Code HOLISPECIAL150 to avail Discount</span>
         </div>
         <div className="flex items-center space-x-3 hover:text-pink-400 transition">
           <Heart className="w-6 h-6   fill-amber-600" />

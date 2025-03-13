@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from "emailjs-com";
+import PromotionalContent from "../../Components/PromotionalContent";
 // Initialize loading state
 
 const servicesList = [
@@ -170,6 +171,7 @@ const Booking = () => {
       <div className="w-full max-w-lg md:max-w-2xl lg:max-w-3xl bg-white p-10 shadow-xl rounded-lg">
 
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Book an Appointment</h2>
+        <PromotionalContent/>
         <form onSubmit={handleCOD} className="space-y-4">
           <input name="name" placeholder="Full Name" onChange={handleChange} className="w-full px-4 py-2 border rounded-lg text-black" required />
           <input name="phone" placeholder="Phone Number" onChange={handleChange} className="w-full px-4 py-2 border rounded-lg text-black" required />
