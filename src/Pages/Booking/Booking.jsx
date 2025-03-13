@@ -88,6 +88,7 @@ const Booking = () => {
   };
 
   const handleChange = (e) => {
+    const currentDate = new Date();
     const { name, value } = e.target;
     if (name === "address") {
       // Address validation: Must contain "Amritsar"
@@ -98,7 +99,50 @@ const Booking = () => {
         setError(""); // Clear error if valid
       }
     }
+    if (name === "name") {
+      if (value.length < 3) {
+        setError("Full Name must be at least 3 characters long.");
+        return;
+      } else {
+        setError("");
+      }
+    }
+
+    // Phone Number Validation: Must be a 10-digit number
+    if (name === "phone") {
+      const phoneRegex = /^[0-9]{10}$/;
+      if (!phoneRegex.test(value)) {
+        setError("Phone Number must be a 10-digit number.");
+        return;
+      } else {
+        setError("");
+      }
+    }
+
+    // Email Validation: Must be a valid email format
+    if (name === "email") {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        setError("Please enter a valid Email Address.");
+        return;
+      } else {
+        setError("");
+      }
+    }
+
+    // House Number Validation: Must be alphanumeric
+    if (name === "houseNumber") {
+      const houseRegex = /^[a-zA-Z0-9\s\-]+$/;
+      if (!houseRegex.test(value)) {
+        setError("House Number must contain only letters, numbers, spaces, or hyphens.");
+        return;
+      } else {
+        setError("");
+      }
+    }
+
     setFormData({ ...formData, [name]: value });
+
   };
 
   const googleSheetURL =
@@ -171,7 +215,7 @@ const Booking = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-transparent">
-      <div className="w-full max-w-lg md:max-w-2xl lg:max-w-3xl bg-white p-10 shadow-xl rounded-lg">
+      <div className="w-full max-w-lg md:max-w-2xl lg:max-w-3xl bg-white text-black p-10 shadow-xl rounded-lg">
 
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Book an Appointment</h2>
         <PromotionalContent/>
@@ -258,7 +302,7 @@ const Booking = () => {
       />
     </div>
 
-    <div className="relative">
+    {/* <div className="relative">
       <label className="block text-gray-300 font-medium mb-1">Select Time</label>
       <input
         type="time"
@@ -266,7 +310,7 @@ const Booking = () => {
         onChange={handleChange}
         className="w-full px-4 py-3 bg-gray-700 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none"
       />
-    </div>
+    </div> */}
   </div>
 </div>
          <button
