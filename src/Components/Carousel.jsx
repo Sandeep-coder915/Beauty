@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 const slides = [
   {
     desktop: '/assets/banner/1.jpg',
-    mobile: '/assets/banner/Untitled design.jpg',
+    mobile: '/assets/banner/150.jpg',
     title: " ",
     description: " ",
     buttonText: "Book Now",
