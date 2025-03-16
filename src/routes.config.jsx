@@ -16,6 +16,7 @@ import TermsAndServices from "./Pages/Policies/TermsAndServices";
 import PrivacyPolicy from "./Pages/Policies/PrivacyPolicy";
 import Reviews from "./Pages/Reviews";
 import GoldFacial from "./Pages/Description/GoldFacial";
+import HowWeWork from "./Pages/HowWeWork";
 
 // 404 Page Component
 const NotFound =({ darkMode }) => {
@@ -92,6 +93,7 @@ const AppRoutes = () => {
 
     {/* Pages  */}
     <Route path='/gold-facial' element={<GoldFacial/>} />
+    <Route path='/how-we-work' element={<HowWeWork/>} />
 
 
     </Routes>

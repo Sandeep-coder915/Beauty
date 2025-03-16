@@ -9,7 +9,7 @@ const TrustSection = ({darkMode}) => {
     transition={{ duration: 0.8 }}
     viewport={{ once: true }}
   >
-    <div className="bg-transparent p-6 rounded-lg shadow-md mt-6">
+    <div className="bg-transparent p-6 rounded-lg shadow-md">
       <h2 className={`text-2xl items-center flex  justify-center font-semibold mb-5 border-b-2 border-pink-400 pb-2
             ${darkMode ? "text-white bg-yellow-500" : ""}`}>Why Trust Us?</h2>
 

@@ -26,8 +26,10 @@ const footerLinks = [
     title: "Support",
     links: [
       { name: "FAQ", path: "/faq" },
+     
       { name: "Privacy Policy", path: "/privacy-policy" },
       { name: "Terms of Service", path: "/terms-and-services" },
+      { name: "How We work", path: "/how-we-work" },
     ],
   },
 ];

@@ -36,7 +36,7 @@ const WhyChooseUs = ({ darkMode }) => {
         <section className={` bg-transparent p-4 rounded-lg`}>
       <div className="container mx-auto text-center px-6">
         <h2 className="text-4xl font-bold mb-6 ">Why Choose Us?</h2>
-        <p className="text-lg max-w-2xl mx-auto mb-10">
+        <p className="text-lg max-w-2xl text-gray-500  mx-auto mb-10">
           Experience seamless beauty services at home with secure payments and professional care.
         </p>
 

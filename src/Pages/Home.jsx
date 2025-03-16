@@ -9,6 +9,7 @@ import TestimonialCarousel from './TestimonialCarousel'
 import TrustSection from '../Components/TrustSection'
 import FAQ from '../Components/FAQ'
 import ContactForm from './Contact'
+import HowWeWork from './HowWeWork'
 
 const Home = ({ darkMode }) => {
   return (
@@ -16,9 +17,12 @@ const Home = ({ darkMode }) => {
       <Popup />
       <Carousel />
       <PromotionalContent className={darkMode} />
-      <TrustSection />
-      <Services />
+      <HowWeWork/>
       <WhyChooseUs />
+      <Services />
+   
+      <TrustSection />
+
       <FAQ />
       <BeauticiansList />
       <ContactForm />
