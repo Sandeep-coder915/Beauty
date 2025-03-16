@@ -56,7 +56,7 @@ const ContactForm= () => {
           value={name}
           name="user_name"
           placeholder="Name"
-          className="w-full p-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full p-2 mb-3  border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-500"
         />
         <input
           onChange={(e) => setPhone(e.target.value)}
@@ -64,7 +64,7 @@ const ContactForm= () => {
           name="user_phone"
           placeholder="Phone Number"
           type="tel"
-          className="w-full p-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full p-2 mb-3 placeholder-gray-500 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <input
           onChange={(e) => setEmail(e.target.value)}
@@ -72,22 +72,25 @@ const ContactForm= () => {
           name="user_email"
           placeholder="Email"
           type="email"
-          className="w-full p-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full placeholder-gray-500 p-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
 
-        <select
-          onChange={(e) => setReason(e.target.value)}
-          value={reason}
-          name="user_reason"
-          className="w-full text-green-50 p-2 mb-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-          <option value="">Select Reason for Contact</option>
-          <option value="Product Inquiry">Product Inquiry</option>
-          <option value="Order Issue">Order Issue</option>
-          <option value="Feedback">Feedback</option>
-          <option value="General Question">General Question</option>
-          <option value="Other">Other</option>
-        </select>
+<select
+  onChange={(e) => setReason(e.target.value)}
+  value={reason}
+  name="user_reason"
+  className="w-full p-2 mb-3 border placeholder-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+>
+  <option value="" className='placeholder-gray-500'>Select Reason for Contact</option>
+  <option value="Booking Inquiry" className="text-black">Booking Inquiry</option>
+  <option value="Service Issue" className="text-black">Service Issue</option>
+  <option value="Reschedule Appointment" className="text-black">Reschedule Appointment</option>
+  <option value="Cancellation Request" className="text-black">Cancellation Request</option>
+  <option value="Feedback" className="text-black">Feedback</option>
+  <option value="General Question" className="text-black">General Question</option>
+  <option value="Other" className="text-black">Other</option>
+</select>
+
 
         <textarea
           onChange={(e) => setMessage(e.target.value)}
