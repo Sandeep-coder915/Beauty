@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import emailjs from "emailjs-com";
 import PromotionalContent from "../../Components/PromotionalContent";
@@ -214,6 +215,14 @@ const Booking = () => {
 
 
   return (
+
+
+    <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+  >
     <div className="flex items-center justify-center min-h-screen bg-transparent">
       <div className="w-full max-w-lg md:max-w-2xl lg:max-w-3xl bg-white text-black p-10 shadow-xl rounded-lg">
 
@@ -335,6 +344,7 @@ const Booking = () => {
         </form>
       </div>
     </div>
+    </motion.div>
   );
 };
 
