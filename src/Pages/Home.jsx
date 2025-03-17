@@ -14,13 +14,13 @@ import HowWeWork from './HowWeWork'
 const Home = ({ darkMode }) => {
   return (
     <div  >
-      <Popup />
+      {/* <Popup /> */}
       <Carousel />
       <PromotionalContent className={darkMode} />
       <HowWeWork/>
       <WhyChooseUs />
       <Services />
-   
+
       <TrustSection />
 
       <FAQ />
