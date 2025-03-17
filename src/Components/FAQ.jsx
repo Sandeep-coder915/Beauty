@@ -38,6 +38,12 @@ const FAQ = () => {
   };
 
   return (
+        <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
     <div className="max-w-3xl mx-auto py-10 px-4">
       <div className="flex items-center justify-center mb-6">
         <HelpCircle className="text-blue-600 w-10 h-10 animate-pulse" />
@@ -80,6 +86,7 @@ const FAQ = () => {
         ))}
       </div>
     </div>
+    </motion.div>
   );
 };
 

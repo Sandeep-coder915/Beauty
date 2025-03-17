@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import emailjs from 'emailjs-com';
+import { motion } from "framer-motion";
 
 const ContactForm= () => {
   const form = useRef();
@@ -38,6 +39,12 @@ const ContactForm= () => {
   };
 
   return (
+    <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+  >
     <div className="flex flex-col items-center justify-center p-6  ">
       <ToastContainer />
       <h1 className="text-3xl font-bold">Contact Us 💖</h1>
@@ -106,6 +113,7 @@ const ContactForm= () => {
         </div>
       </form>
     </div>
+    </motion.div>
   );
 };
 

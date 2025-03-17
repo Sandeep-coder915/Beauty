@@ -1,11 +1,19 @@
+import { motion } from "framer-motion";
 const HowWeWork = () => {
     return (
+
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
       <div className="max-w-7xl mx-auto p-4 text-center">
         <h1 className="text-3xl font-bold mb-4">How We Work</h1>
         <p className="  mb-6">
           We provide professional beauty services at your doorstep with a seamless booking experience. Here’s how it works:
         </p>
-  
+
         <div className="grid gap-6 md:grid-cols-3">
           {/* Step 1: Choose Service */}
           <div className="p-4 border rounded-lg shadow-md  ">
@@ -14,7 +22,7 @@ const HowWeWork = () => {
               Browse our wide range of beauty services, from facials to bridal makeup, and select what suits you best.
             </p>
           </div>
-  
+
           {/* Step 2: Book Appointment */}
           <div className="p-4 border rounded-lg shadow-md  ">
             <h2 className="text-xl font-semibold  ">2. Book Your Appointment</h2>
@@ -22,7 +30,7 @@ const HowWeWork = () => {
               Pick a convenient date and time, choose your payment method, and confirm your booking in just a few clicks.
             </p>
           </div>
-  
+
           {/* Step 3: Enjoy the Service */}
           <div className="p-4 border rounded-lg shadow-md  ">
             <h2 className="text-xl font-semibold  ">3. Enjoy Professional Service</h2>
@@ -31,7 +39,7 @@ const HowWeWork = () => {
             </p>
           </div>
         </div>
-  
+
         {/* <div className="mt-8">
           <h3 className="text-lg font-medium text-gray-700">Why Choose Us?</h3>
           <ul className="text-gray-600 mt-3 space-y-2">
@@ -42,8 +50,8 @@ const HowWeWork = () => {
           </ul>
         </div> */}
       </div>
+      </motion.div>
     );
   };
-  
+
   export default HowWeWork;
-  
