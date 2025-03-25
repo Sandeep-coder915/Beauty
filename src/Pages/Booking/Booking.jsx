@@ -267,7 +267,7 @@ const Booking = () => {
               </label>
             ))}
           </div>
-          <div className="flex flex-col items-center">
+          {/* <div className="flex flex-col items-center">
   <input
     type="text"
     placeholder="Enter Coupon Code"
@@ -290,7 +290,7 @@ const Booking = () => {
       <span className="ml-2 font-semibold">Coupon Applied Successfully!</span>
     </div>
   )}
-</div>
+{/* </div>  */}
 
           {/* Display Total Amount */}
           <div className="text-xl font-semibold text-gray-800 text-center mt-4">
