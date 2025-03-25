@@ -17,6 +17,7 @@ import PrivacyPolicy from "./Pages/Policies/PrivacyPolicy";
 import Reviews from "./Pages/Reviews";
 import GoldFacial from "./Pages/Description/GoldFacial";
 import HowWeWork from "./Pages/HowWeWork";
+import SpinWheel from "./Components/SpinWheel";
 
 // 404 Page Component
 const NotFound =({ darkMode }) => {
@@ -94,6 +95,7 @@ const AppRoutes = () => {
     {/* Pages  */}
     <Route path='/gold-facial' element={<GoldFacial/>} />
     <Route path='/how-we-work' element={<HowWeWork/>} />
+    {/* <Route path='/spin' element={<SpinWheel/>} /> */}
 
 
     </Routes>
