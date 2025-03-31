@@ -34,13 +34,13 @@ const PromotionalContent = () => {
           <span className=" ">Service Availible only in Amritsar</span>
         </div>
         {/* <div className="flex items-center space-x-3 hover:text-pink-400 transition">
-          <Gift className="w-6 h-6 text-green-400" />
-          <span>Special Holi Discount Offer </span>
-        </div>
-        <div className="flex items-center space-x-3 hover:text-pink-400 transition">
-          <ShoppingCart className="w-6 h-6 text-blue-400" />
-          <span>Use Code HOLISPECIAL150 to avail Discount</span>
-        </div> */}
+        //   <Gift className="w-6 h-6 text-green-400" />
+        //   <span>Special Holi Discount Offer </span>
+        // </div>
+        // <div className="flex items-center space-x-3 hover:text-pink-400 transition">
+        //   <ShoppingCart className="w-6 h-6 text-blue-400" />
+        //   <span>Use Code HOLISPECIAL150 to avail Discount</span>
+        // </div> */}
         <div className="flex items-center space-x-3 hover:text-pink-400 transition">
           <Heart className="w-6 h-6   fill-amber-600" />
           <span>Pay At the Time Of Delivery(COD)</span>
